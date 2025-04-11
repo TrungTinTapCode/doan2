@@ -28,6 +28,11 @@
 
         <label>Giá (VNĐ):</label><br>
         <input type="number" name="price" value="{{ $product->price }}"><br><br>
+        <select name="category_id">
+    @foreach ($categories as $category)
+        <option value="{{ $category->id }}">{{ $category->name }}</option>
+    @endforeach
+</select>
 
         <button type="submit">Cập nhật</button>
     </form>

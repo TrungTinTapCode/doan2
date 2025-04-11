@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
 class ProductController extends Controller
 {
@@ -14,32 +15,42 @@ class ProductController extends Controller
         return view('products.index', compact('products'));
     }
     // Hiển thị form
-public function create()
-{
-    return view('products.create');
-}
+    public function create()
+    {
+        $categories = Category::all(); // Lấy tất cả danh mục
+        return view('products.create', compact('categories'));
+    }
+    
 
 // Lưu sản phẩm mới
 public function store(Request $request)
 {
-    // Validate dữ liệu
     $validated = $request->validate([
         'name' => 'required|string',
         'description' => 'nullable|string',
         'price' => 'required|numeric',
+        'category_id' => 'required|exists:categories,id',
+        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
     ]);
 
-    // Tạo sản phẩm mới
+    if ($request->hasFile('image')) {
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('uploads'), $imageName);
+        $validated['image'] = $imageName;
+    }
+
     Product::create($validated);
 
-    // Chuyển hướng về danh sách sản phẩm
     return redirect('/products')->with('success', 'Thêm sản phẩm thành công!');
 }
+
+
 // Hiển thị form chỉnh sửa
 public function edit($id)
 {
     $product = Product::findOrFail($id);
-    return view('products.edit', compact('product'));
+    $categories = Category::all();
+    return view('products.edit', compact('product', 'categories'));
 }
 
 // Cập nhật sản phẩm
@@ -63,6 +74,12 @@ public function destroy($id)
     $product->delete();
 
     return redirect('/products')->with('success', 'Xoá sản phẩm thành công!');
+}
+//chi tiết sản phẩm
+public function show($id)
+{
+    $product = Product::findOrFail($id);
+    return view('products.show', compact('product'));
 }
 
 }

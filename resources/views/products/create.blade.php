@@ -16,18 +16,32 @@
         </div>
     @endif
 
-    <form action="/products" method="POST">
-        @csrf
-        <label>Tên sản phẩm:</label><br>
-        <input type="text" name="name"><br><br>
+    <form action="/products" method="POST" enctype="multipart/form-data">
+    @csrf
 
-        <label>Mô tả:</label><br>
-        <textarea name="description"></textarea><br><br>
+    <label>Tên sản phẩm:</label><br>
+    <input type="text" name="name"><br><br>
 
-        <label>Giá (VNĐ):</label><br>
-        <input type="number" name="price"><br><br>
+    <label>Mô tả:</label><br>
+    <textarea name="description"></textarea><br><br>
 
-        <button type="submit">Thêm</button>
-    </form>
+    <label>Giá:</label><br>
+    <input type="number" name="price"><br><br>
+
+    <label>Ảnh sản phẩm:</label><br>
+    <input type="file" name="image"><br><br>
+    <label for="category_id">Danh mục:</label>
+
+    <select name="category_id" id="category_id" required>
+    <option value="">-- Chọn danh mục --</option>
+    @foreach ($categories as $category)
+        <option value="{{ $category->id }}">{{ $category->name }}</option>
+    @endforeach
+    </select>
+
+    <button type="submit">Thêm</button>
+
+</form>
+
 </body>
 </html>
