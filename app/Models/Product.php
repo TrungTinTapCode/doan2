@@ -9,11 +9,12 @@ class Product extends Model
 {
     use HasFactory;
 
-    // Nếu muốn khai báo các cột có thể gán tự động:
-    protected $fillable = ['name', 'description', 'price', 'image'];
-    public function products()
-{
-    return $this->hasMany(Product::class);
-}
 
+    protected $fillable = ['name', 'description', 'price', 'image', 'category_id'];
+
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
