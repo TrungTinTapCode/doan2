@@ -30,6 +30,7 @@ public function store(Request $request)
         'description' => 'nullable|string',
         'price' => 'required|numeric',
         'category_id' => 'required|exists:categories,id',
+        'quantity' => 'required|integer|min:0',
         'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
     ]);
 

@@ -38,6 +38,13 @@
         <option value="{{ $category->id }}">{{ $category->name }}</option>
     @endforeach
     </select>
+    <div class="mb-3">
+    <label for="quantity" class="form-label">Số lượng</label>
+    <input type="number" name="quantity" id="quantity" class="form-control" value="{{ old('quantity') }}">
+    @error('quantity')
+        <div class="text-danger">{{ $message }}</div>
+    @enderror
+</div>
 
     <button type="submit">Thêm</button>
 

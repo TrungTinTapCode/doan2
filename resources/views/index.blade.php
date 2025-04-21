@@ -6,6 +6,8 @@
     <title>Document</title>
 </head>
 <body>
+  @include('header')
     <h1>dự định làm trang chủ á</h1>
+  @include('footer')
 </body>
 </html>
