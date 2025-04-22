@@ -8,7 +8,7 @@
 <div class="container mt-4">
     <h1>Danh sách danh mục</h1>
 
-    <a href="{{ route('categories.create') }}" class="btn btn-success mb-3">Thêm mới</a>
+    <a href="{{ route('admin.categories.create') }}" class="btn btn-success mb-3">Thêm mới</a>
 
     @if (session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
@@ -27,8 +27,8 @@
                 
                 <td>{{ $cate->name }}</td>
                 <td>
-                    <a href="{{ route('categories.edit', $cate->id) }}" class="btn btn-warning btn-sm">Sửa</a>
-                    <form action="{{ route('categories.destroy', $cate->id) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('admin.categories.edit', $cate->id) }}" class="btn btn-warning btn-sm">Sửa</a>
+                    <form action="{{ route('admin.categories.destroy', $cate->id) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button class="btn btn-danger btn-sm" onclick="return confirm('Xóa thật chứ?')">Xóa</button>

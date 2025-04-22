@@ -6,7 +6,12 @@
 </head>
 <body>
     <h1>Danh sách sản phẩm</h1>
-
+    <a href="{{ route('admin.products.create') }}">
+    <button type="button">Thêm sản phẩm</button>
+    <a href="{{ route('admin.categories.index') }}">
+    <button type="button">Quản lý danh mục</button>
+</a>
+</a>
     <ul>
         @foreach ($products as $product)
             <li>
@@ -26,11 +31,12 @@
                 <a href="{{ route('admin.products.edit', $product->id) }}">Chỉnh sửa</a>|
                 <a href="{{ route('admin.products.show', $product->id) }}">Xem chi tiết</a>
 
-                <form action="/products/{{ $product->id }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" onclick="return confirm('Bạn có chắc muốn xoá không?')">Xoá</button>
-                </form>
+                <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" style="display:inline;">
+    @csrf
+    @method('DELETE')
+    <button type="submit" onclick="return confirm('Bạn có chắc muốn xoá không?')">Xoá</button>
+</form>
+
 
                 <hr>
             </li>

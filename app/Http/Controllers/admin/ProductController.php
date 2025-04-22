@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
@@ -42,7 +43,7 @@ public function store(Request $request)
 
     Product::create($validated);
 
-    return redirect('adminadmin/products')->with('success', 'Thêm sản phẩm thành công!');
+    return redirect()->route('admin.products.index')->with('success', 'Thêm sản phẩm thành công!');
 }
 
 
@@ -61,20 +62,23 @@ public function update(Request $request, $id)
         'name' => 'required|string',
         'description' => 'nullable|string',
         'price' => 'required|numeric',
+        'quantity' => 'required|integer|min:0',
+        'category_id' => 'required|exists:categories,id',
     ]);
 
     $product = Product::findOrFail($id);
     $product->update($validated);
 
-    return redirect('adminadmin/products')->with('success', 'Cập nhật thành công!');
+    return redirect()->route('admin.products.index')->with('success', 'Cập nhật thành công!');
 }
+
 //xóa 
 public function destroy($id)
 {
     $product = Product::findOrFail($id);
     $product->delete();
 
-    return redirect('adminadmin/products')->with('success', 'Xoá sản phẩm thành công!');
+    return redirect()->route('admin.products.index')->with('success', 'Xoá sản phẩm thành công!');
 }
 //chi tiết sản phẩm
 public function show($id)
@@ -82,6 +86,5 @@ public function show($id)
     $product = Product::findOrFail($id);
     return view('admin.products.show', compact('product'));
 }
-
 }
 

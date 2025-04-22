@@ -8,7 +8,7 @@
     <div class="container">
         <h1>Thêm danh mục mới</h1>
 
-        <form action="{{ route('categories.store') }}" method="POST">
+        <form action="{{ route('admin.categories.store') }}" method="POST">
             @csrf
 
             <div class="mb-3">
@@ -21,7 +21,7 @@
             </div>
 
             <button type="submit" class="btn btn-primary">Lưu</button>
-            <a href="{{ route('categories.index') }}" class="btn btn-secondary">Quay lại</a>
+            <a href="{{ route('admin.categories.index') }}" class="btn btn-secondary">Quay lại</a>
         </form>
     </div>
 </body>
