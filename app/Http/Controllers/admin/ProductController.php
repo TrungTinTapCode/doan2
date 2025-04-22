@@ -42,7 +42,7 @@ public function store(Request $request)
 
     Product::create($validated);
 
-    return redirect('/products')->with('success', 'Thêm sản phẩm thành công!');
+    return redirect('adminadmin/products')->with('success', 'Thêm sản phẩm thành công!');
 }
 
 
@@ -66,7 +66,7 @@ public function update(Request $request, $id)
     $product = Product::findOrFail($id);
     $product->update($validated);
 
-    return redirect('/products')->with('success', 'Cập nhật thành công!');
+    return redirect('adminadmin/products')->with('success', 'Cập nhật thành công!');
 }
 //xóa 
 public function destroy($id)
@@ -74,7 +74,7 @@ public function destroy($id)
     $product = Product::findOrFail($id);
     $product->delete();
 
-    return redirect('/products')->with('success', 'Xoá sản phẩm thành công!');
+    return redirect('adminadmin/products')->with('success', 'Xoá sản phẩm thành công!');
 }
 //chi tiết sản phẩm
 public function show($id)

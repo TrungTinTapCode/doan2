@@ -7,11 +7,11 @@ use App\Models\Category;
 class CategoryController extends Controller {
     public function index() {
         $categories = Category::all();
-        return view('categories.index', compact('categories'));
+        return view('admin.categories.index', compact('categories'));
     }
 
     public function create() {
-        return view('categories.create');
+        return view('admin.categories.create');
     }
 
     public function store(Request $request) {
@@ -23,12 +23,12 @@ class CategoryController extends Controller {
         ]);
 
         Category::create(['name' => $request->name]);
-        return redirect()->route('categories.index')->with('success', 'Thêm danh mục thành công!');
+        return redirect()->route('admin.categories.index')->with('success', 'Thêm danh mục thành công!');
     }
 
     public function edit($id) {
         $category = Category::findOrFail($id);
-        return view('categories.edit', compact('category'));
+        return view('admin.categories.edit', compact('category'));
     }
 
     public function update(Request $request, $id) {
@@ -39,13 +39,13 @@ class CategoryController extends Controller {
         $category = Category::findOrFail($id);
         $category->update(['name' => $request->name]);
 
-        return redirect()->route('categories.index')->with('success', 'Cập nhật danh mục thành công!');
+        return redirect()->route('admin.categories.index')->with('success', 'Cập nhật danh mục thành công!');
     }
 
     public function destroy($id) {
         $category = Category::findOrFail($id);
         $category->delete();
 
-        return redirect()->route('categories.index')->with('success', 'Xoá danh mục thành công!');
+        return redirect()->route('admin.categories.index')->with('success', 'Xoá danh mục thành công!');
     }
 }
