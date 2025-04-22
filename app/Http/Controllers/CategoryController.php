@@ -1,21 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
-use App\Http\Controllers\Controller;
-
-
-class CategoryController extends Controller
-{
+class CategoryController extends Controller {
     public function index() {
         $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
+        return view('categories.index', compact('categories'));
     }
 
     public function create() {
-        return view('admin.categories.create');
+        return view('categories.create');
     }
 
     public function store(Request $request) {
@@ -27,13 +23,12 @@ class CategoryController extends Controller
         ]);
 
         Category::create(['name' => $request->name]);
-
         return redirect()->route('categories.index')->with('success', 'Thêm danh mục thành công!');
     }
 
     public function edit($id) {
         $category = Category::findOrFail($id);
-        return view('admin.categories.edit', compact('category'));
+        return view('categories.edit', compact('category'));
     }
 
     public function update(Request $request, $id) {
