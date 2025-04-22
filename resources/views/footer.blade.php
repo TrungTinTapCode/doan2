@@ -4,7 +4,7 @@
 
       <!-- Logo + Mô tả -->
       <div class="col-lg-3 col-md-6">
-        <img src="{{asset('img/logo-01-01.png')}}" alt="DrCeutics" class="mb-3" width="70%">
+        <img src="/doan2/resources/img/logo-01-01.png" alt="DrCeutics" class="mb-3" width="70%">
         <p>
           <strong>DrCeutics</strong> là thương hiệu dược mỹ phẩm an toàn dựa trên khoa học, với sự lành tính và thuần Việt do Dược sĩ Tiến sáng lập năm 2021.
         </p>
