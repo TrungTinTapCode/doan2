@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <!-- Logo -->
             <a class="navbar-brand " href="index.blade.php">
-                <img src="/doan2/resources/img/logo-01-01.png" alt="Logo" height="100" width="100%">
+                <img src="{{asset('img/logo-01-01.png')}}" alt="Logo" height="100" width="100%">
             </a>
 
             <!-- Nút Toggle cho Mobile -->
