@@ -17,7 +17,7 @@
     <p>Không có ảnh</p>
 @endif
 
-<a href="{{ route('products.index') }}">Quay lại danh sách</a>
+<a href="{{ route('admin.products.index') }}">Quay lại danh sách</a>
 
 </body>
 </html>

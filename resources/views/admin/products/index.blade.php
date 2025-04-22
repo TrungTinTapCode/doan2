@@ -23,8 +23,8 @@
 
                 <br>
 
-                <a href="/products/{{ $product->id }}/edit">Chỉnh sửa</a> |
-                <a href="{{ route('products.show', $product->id) }}">Xem chi tiết</a>
+                <a href="{{ route('admin.products.edit', $product->id) }}">Chỉnh sửa</a>|
+                <a href="{{ route('admin.products.show', $product->id) }}">Xem chi tiết</a>
 
                 <form action="/products/{{ $product->id }}" method="POST" style="display:inline;">
                     @csrf

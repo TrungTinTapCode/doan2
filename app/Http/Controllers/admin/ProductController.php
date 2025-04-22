@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -12,13 +12,13 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all(); // lấy hết dữ liệu
-        return view('products.index', compact('products'));
+        return view('admin.products.index', compact('products'));
     }
     // Hiển thị form
     public function create()
     {
         $categories = Category::all(); // Lấy tất cả danh mục
-        return view('products.create', compact('categories'));
+        return view('admin.products.create', compact('categories'));
     }
     
 
@@ -51,7 +51,7 @@ public function edit($id)
 {
     $product = Product::findOrFail($id);
     $categories = Category::all();
-    return view('products.edit', compact('product', 'categories'));
+    return view('admin.products.edit', compact('product', 'categories'));
 }
 
 // Cập nhật sản phẩm
@@ -80,7 +80,7 @@ public function destroy($id)
 public function show($id)
 {
     $product = Product::findOrFail($id);
-    return view('products.show', compact('product'));
+    return view('admin.products.show', compact('product'));
 }
 
 }

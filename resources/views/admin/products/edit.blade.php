@@ -16,7 +16,7 @@
         </div>
     @endif
 
-    <form action="/products/{{ $product->id }}" method="POST">
+    <form action="{{ route('admin.products.update', $product->id) }}" method="POST">
         @csrf
         @method('PUT')
 
@@ -30,12 +30,15 @@
         <input type="number" name="price" value="{{ $product->price }}"><br><br>
         <select name="category_id">
     @foreach ($categories as $category)
-        <option value="{{ $category->id }}">{{ $category->name }}</option>
+        <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>
+            {{ $category->name }}
+        </option>
     @endforeach
 </select>
 <div class="mb-3">
     <label for="quantity" class="form-label">Số lượng</label>
-    <input type="number" name="quantity" id="quantity" class="form-control" value="{{ old('quantity') }}">
+    <input type="number" name="quantity" id="quantity" class="form-control" value="{{ old('quantity', $product->quantity) }}">
+
     @error('quantity')
         <div class="text-danger">{{ $message }}</div>
     @enderror
