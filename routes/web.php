@@ -1,13 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\nguoidung\SanPhamController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\nguoidung\HomeController;
 
 // Trang người dùng
 Route::get('/', [HomeController::class, 'index'])->name('home');
-
+Route::get('/nguoidung/sanpham', [SanPhamController::class, 'index'])->name('nguoidung.sanpham');
 // Trang admin
 Route::prefix('admin')->name('admin.')->group(function () {
     // Quản lý sản phẩm

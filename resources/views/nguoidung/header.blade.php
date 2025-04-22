@@ -19,7 +19,7 @@
                         <a class="nav-link" href="index.blade.php"></i> TRANG CHỦ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="sanpham.php"></i> SẢN PHẨM</a>
+                    <a  class="nav-link" href="{{ route('nguoidung.sanpham') }}">Sản phẩm</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="thongbao.php"></i> THÔNG BÁO</a>
