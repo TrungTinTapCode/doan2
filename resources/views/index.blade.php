@@ -104,7 +104,7 @@
                         <div class="row justify-content-center">
                             @foreach ($chunk as $product)
                                 <div class="col-md-4">
-                                    <a href="{{ route('sanpham', $product->id) }}">
+                                    <a href="{{ route('sanpham.show', $product->id) }}">
                                         @if ($product->image)
                                             <img src="{{ asset('uploads/' . $product->image) }}" class="d-block mx-auto product-img" alt="{{ $product->name }}" width="100%">
                                         @else

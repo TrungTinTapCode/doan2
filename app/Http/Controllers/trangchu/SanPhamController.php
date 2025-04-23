@@ -13,4 +13,9 @@ class SanPhamController extends Controller
         $products = Product::all(); // hoặc where('is_active', 1) nếu cần
         return view('sanpham', compact('products'));
     }
+    public function show($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('chitiet_sanpham', compact('product'));
+    }
 }

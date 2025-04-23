@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gentle Olive Facial Cleansing Gel</title>
-    <script src="giohang.js"></script>
+    <title>Chi Tiết </title>
     <style>
         * {
             margin: 0;
@@ -96,17 +95,21 @@
 </head>
 
 <body>
-
     <div class="product-container">
         <div class="product-image">
-            <img src="/img/drceutics-gentle-olive-facial-cleansing-gel-bao-bi-250g-768x768.png" alt="Gentle Olive Facial Cleansing Gel Product and Packaging">
+            <img src="{{ asset('uploads/' . $product->image) }}" alt="{{ $product->name }}">
         </div>
         <div class="product-info">
-            <h1 class="product-title">GENTLE OLIVE FACIAL CLEANSING GEL</h1>
+            <h1 class="product-title">{{ $product->name }} - @if ($product->volume){{ $product->volume }} @endif</h1>
             <div class="product-description">
-                <p>NgoàiSữa rửa mặt tạo bọt dạng gel với những thành phần làm sạch hiệu quả nhưng dịu nhẹ từ olive kết hợp với các dẫn xuất từ acid amin đem lại hiệu ứng hiệp đồng giúp tăng cường khả năng làm sạch sâu, làm sạch chọn lọc bã nhờn dư thừa mà không gây khô da, duy trì độ ẩm tự nhiên cho làn da và hạn chế tối đa tình trạng kích ứng. Ngoài ra, các thành phần dưỡng ẩm, prebiotic và dưỡng chất khác còn hỗ trợ phục hồi chức năng hàng rào bảo vệ da, cân bằng hệ vi sinh trên da, làm dịu da và dưỡng ẩm, giúp nâng cao sức khỏe làn da; đồng thời, giúp lỗ chân lông thông thoáng, da mặt sạch mịn, ẩm mượt; ngăn ngừa tình trạng mụn do tăng tiết bã.</p>
+                <p>{{ $product->description }}</p>
             </div>
-            <button class="add-to-cart" >Thêm vào giỏ hàng</button>
+            <!-- {{-- 
+                <form action="{{ route('cart.add', $product->id) }}" method="POST">
+                    @csrf
+                <button type="submit" class="add-to-cart">Thêm vào giỏ hàng</button>
+                </form>
+            --}} -->
         </div>
     </div>
 </body>

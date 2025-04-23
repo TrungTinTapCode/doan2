@@ -84,17 +84,20 @@
     </div>
 
     <div class="row g-4">
-      @foreach ($products as $product)
-        <div class="col-md-4">
-          <div class="card shadow rounded-3 h-100 text-center p-3">
-            <img src="{{ asset('uploads/' . $product->image) }}" class="img-fluid mx-auto" style="height: 250px; object-fit: contain;" alt="{{ $product->name }}">
-            <div class="card-body">
-              <h5 class="card-title">{{ $product->name }} - @if ($product->volume){{ $product->volume }} @endif</h5>
-              <p class="fw-bold">{{ number_format($product->price, 0, ',', '.') }} VNĐ</p>
-            </div>
-          </div>
+    @foreach ($products as $product)
+  <div class="col-md-4">
+    <a href="{{ route('sanpham.show', $product->id) }}" class="text-decoration-none text-dark">
+      <div class="card shadow rounded-3 h-100 text-center p-3">
+        <img src="{{ asset('uploads/' . $product->image) }}" class="img-fluid mx-auto" style="height: 250px; object-fit: contain;" alt="{{ $product->name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ $product->name }} - @if ($product->volume){{ $product->volume }} @endif</h5>
+          <p class="fw-bold">{{ number_format($product->price, 0, ',', '.') }} VNĐ</p>
         </div>
-      @endforeach
+      </div>
+    </a>
+  </div>
+@endforeach
+
     </div>
 
   </div>

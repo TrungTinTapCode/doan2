@@ -10,6 +10,8 @@ use App\Http\Controllers\trangchu\LienHeController;
 use App\Http\Controllers\trangchu\VideoController;
 use App\Http\Controllers\trangchu\GioHangController;
 use App\Http\Controllers\trangchu\DSTController;
+use App\Http\Controllers\nguoidung\AuthCustomerController;
+use App\Http\Controllers\nguoidung\NguoiDungController;
 
 // Trang chu
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -19,8 +21,18 @@ Route::get('/lienhe', [LienHeController::class, 'index'])->name('lienhe');
 Route::get('/video', [VideoController::class, 'index'])->name('video');
 Route::get('/giohang', [GioHangController::class, 'index'])->name('giohang');
 Route::get('/dst',[DSTController::class, 'index'])->name('dst');
-//Nguoidung 
+Route::get('/sanpham/{id}', [SanPhamController::class, 'show'])->name('sanpham.show');
+//khachchuadangnhap
+Route::middleware('auth:customer')->group(function () {
+    Route::get('/hoso', [NguoiDungController::class, 'index'])->name('nguoidung.hoso');
+});
 
+//Nguoidung 
+Route::get('/nguoidung/login', [AuthCustomerController::class, 'showLoginForm'])->name('nguoidung.login');
+Route::post('/nguoidung/login', [AuthCustomerController::class, 'login']);
+Route::get('/nguoidung/register', [AuthCustomerController::class, 'showRegisterForm'])->name('nguoidung.register');
+Route::post('/nguoidung/register', [AuthCustomerController::class, 'register']);
+Route::post('/nguoidung/logout', [AuthCustomerController::class, 'logout'])->name('nguoidung.logout');
 // Trang admin
 Route::prefix('admin')->name('admin.')->group(function () {
     // Quản lý sản phẩm

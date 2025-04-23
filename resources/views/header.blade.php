@@ -33,9 +33,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('video')}}"></i> VIDEO</a>
                     </li>
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link" href="{{asset('dst')}}"></i><b> DST</b></a>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <!-- Tìm kiếm và Icon Người dùng, Giỏ hàng -->
@@ -44,7 +44,7 @@
                 </form>
 
                 <div class="d-flex align-items-center">
-                    <a href="./nguoidung.html" class="text-dark me-4"><i
+                    <a href="{{ asset ('hoso')}}" class="text-dark me-4"><i
                             class="bi bi-person-circle fs-4 nav-icon"></i></a>
                     <a href="{{asset('giohang')}}" class="text-dark"><i class="bi bi-cart fs-4 nav-icon"></i></a>
                 </div>
