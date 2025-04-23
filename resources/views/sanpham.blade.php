@@ -79,77 +79,24 @@
 
 <section class="py-5 bg-light">
   <div class="container">
-            <div class="td1">
-                <span>SẢN PHẨM NỔI BẬT</span>
-            </div>
+    <div class="td1">
+      <span>SẢN PHẨM NỔI BẬT</span>
+    </div>
 
     <div class="row g-4">
-      <!-- Product 1 -->
-      <div class="col-md-4">
-        <div class="card shadow rounded-3 h-100 text-center p-3">
-          <img src="/path/to/image1.jpg" class="img-fluid mx-auto" style="height: 250px; object-fit: contain;" alt="Sản phẩm 1">
-          <div class="card-body">
-            <h5 class="card-title">Gentle OLIVE Facial Cleansing Gel</h5>
-            <p class="fw-bold">240.000 VNĐ – 250g</p>
+      @foreach ($products as $product)
+        <div class="col-md-4">
+          <div class="card shadow rounded-3 h-100 text-center p-3">
+            <img src="{{ asset('uploads/' . $product->image) }}" class="img-fluid mx-auto" style="height: 250px; object-fit: contain;" alt="{{ $product->name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ $product->name }} - @if ($product->volume){{ $product->volume }} @endif</h5>
+              <p class="fw-bold">{{ number_format($product->price, 0, ',', '.') }} VNĐ</p>
+            </div>
           </div>
         </div>
-      </div>
-
-      <!-- Product 2 -->
-      <div class="col-md-4">
-        <div class="card shadow rounded-3 h-100 text-center p-3">
-          <img src="/path/to/image2.jpg" class="img-fluid mx-auto" style="height: 250px; object-fit: contain;" alt="Sản phẩm 2">
-          <div class="card-body">
-            <h5 class="card-title">Gentle Olive Milky Micellar Water</h5>
-            <p class="fw-bold">210.000 VNĐ – 310mL</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="col-md-4">
-        <div class="card shadow rounded-3 h-100 text-center p-3">
-          <img src="/path/to/image3.jpg" class="img-fluid mx-auto" style="height: 250px; object-fit: contain;" alt="Sản phẩm 3">
-          <div class="card-body">
-            <h5 class="card-title">Gentle Olive Foaming Facial Wash</h5>
-            <p class="fw-bold">280.000 VNĐ – 420mL</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 4 -->
-      <div class="col-md-4">
-        <div class="card shadow rounded-3 h-100 text-center p-3">
-          <img src="/path/to/image4.jpg" class="img-fluid mx-auto" style="height: 250px; object-fit: contain;" alt="Sản phẩm 4">
-          <div class="card-body">
-            <h5 class="card-title">Ultimate Tranexamic Cream</h5>
-            <p class="fw-bold">320.000 VNĐ – 50g</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 5 -->
-      <div class="col-md-4">
-        <div class="card shadow rounded-3 h-100 text-center p-3">
-          <img src="/path/to/image5.jpg" class="img-fluid mx-auto" style="height: 250px; object-fit: contain;" alt="Sản phẩm 5">
-          <div class="card-body">
-            <h5 class="card-title">Gentle Toner Calm+</h5>
-            <p class="fw-bold">190.000 VNĐ – 200mL</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Product 6 -->
-      <div class="col-md-4">
-        <div class="card shadow rounded-3 h-100 text-center p-3">
-          <img src="/path/to/image6.jpg" class="img-fluid mx-auto" style="height: 250px; object-fit: contain;" alt="Sản phẩm 6">
-          <div class="card-body">
-            <h5 class="card-title">Sữa Rửa Mặt Pure B5</h5>
-            <p class="fw-bold">230.000 VNĐ – 120mL</p>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
+
   </div>
 </section>
 

@@ -20,6 +20,7 @@ Route::get('/video', [VideoController::class, 'index'])->name('video');
 Route::get('/giohang', [GioHangController::class, 'index'])->name('giohang');
 Route::get('/dst',[DSTController::class, 'index'])->name('dst');
 //Nguoidung 
+
 // Trang admin
 Route::prefix('admin')->name('admin.')->group(function () {
     // Quản lý sản phẩm

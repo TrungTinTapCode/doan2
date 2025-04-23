@@ -35,7 +35,7 @@ public function store(Request $request)
         'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         'volume' => 'nullable|string|max:50',
     ]);
-
+    $validated['is_featured'] = $request->has('is_featured');
     if ($request->hasFile('image')) {
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('uploads'), $imageName);
@@ -67,12 +67,15 @@ public function update(Request $request, $id)
         'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         'volume' => 'nullable|string|max:50',
     ]);
+    $product = Product::findOrFail($id);
+    $validated['is_featured'] = $request->has('is_featured');
     if ($request->hasFile('image')) {
         $imageName = time() . '.' . $request->image->extension();
         $request->image->move(public_path('uploads'), $imageName);
         $validated['image'] = $imageName;
+    } else {
+        $validated['image'] = $product->image;
     }
-    $product = Product::findOrFail($id);
     
     $product->update($validated);
     

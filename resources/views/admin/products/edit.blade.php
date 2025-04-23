@@ -26,6 +26,9 @@
         <label>Mô tả:</label><br>
         <textarea name="description">{{ $product->description }}</textarea><br><br>
         <label>Ảnh sản phẩm:</label><br>
+        @if ($product->image)
+    <img src="{{ asset('uploads/' . $product->image) }}" alt="Ảnh hiện tại" width="100">
+        @endif
         <input type="file" name="image"><br><br>
         <label>Giá (VNĐ):</label><br>
         <input type="number" name="price" value="{{ $product->price }}"><br><br>
@@ -40,13 +43,11 @@
 
 <label>
     <input type="checkbox" name="is_featured" value="1" {{ $product->is_featured ? 'checked' : '' }}>
-    Sản phẩm nổi bật
+    Sản phẩm nổi bật-trang chủ
 </label>
 <br>
 <label>Dung tích (VD: 500ml, 250g):</label><br>
 <input type="text" name="volume" value="{{ old('volume', $product->volume ?? '') }}"><br><br>
-
-</select>
 <div class="mb-3">
     <label for="quantity" class="form-label">Số lượng</label>
     <input type="number" name="quantity" id="quantity" class="form-control" value="{{ old('quantity', $product->quantity) }}">

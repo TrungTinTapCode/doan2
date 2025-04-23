@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
 </head>
 <body>
-@include('nguoidung.header')
+@include('header')
 
 
 <style>
@@ -167,7 +167,7 @@
 
 
 
-@include('nguoidung.footer')
+@include('footer')
 </body>
 </html>
 
