@@ -11,7 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./Css/bootstrap-icons-1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{{asset('./Css/bootstrap-icons-1.11.3/font/bootstrap-icons.css')}}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('css/sanpham.css')}}">
 
@@ -38,31 +38,31 @@
     <!-- The slideshow/carousel -->
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{ asset('img/bn1.jpg')}} class="d-block w-100" style="height: 45rem;" alt="Slide 1">
+        <img src="{{ asset('img/bn1.jpg')}}" class="d-block w-100" style="height: 45rem;" alt="Slide 1">
       </div>
       <div class="carousel-item">
-        <img src="/doan2/resources/img/bn2.jpg" class="d-block w-100" style="height: 45rem;" alt="Slide 2">
+        <img src="{{asset('img/bn2.jpg')}}" class="d-block w-100" style="height: 45rem;" alt="Slide 2">
       </div>
       <div class="carousel-item">
-        <img src="/doan2/resources/img/bn3.jpg" class="d-block w-100" style="height: 45rem;" alt="Slide 3">
+        <img src="{{asset('img/bn3.jpg')}}" class="d-block w-100" style="height: 45rem;" alt="Slide 3">
       </div>
       <div class="carousel-item">
-        <img src="/doan2/resources/img/bn4.jpg" class="d-block w-100" style="height: 45rem;" alt="Slide 4">
+        <img src="{{asset('img/bn4.jpg')}}" class="d-block w-100" style="height: 45rem;" alt="Slide 4">
       </div>
       <div class="carousel-item">
-        <img src="/doan2/resources/img/bn5.jpg" class="d-block w-100" style="height: 45rem;" alt="Slide 5">
+        <img src="{{asset('img/bn5.jpg')}}" class="d-block w-100" style="height: 45rem;" alt="Slide 5">
       </div>
       <div class="carousel-item">
-        <img src="/doan2/resources/img/bn6.jpg" class="d-block w-100" style="height: 45rem;" alt="Slide 6">
+        <img src="{{asset('img/bn6.jpg')}}" class="d-block w-100" style="height: 45rem;" alt="Slide 6">
       </div>
       <div class="carousel-item">
-        <img src="/doan2/resources/img/bn7.jpg" class="d-block w-100" style="height: 45rem;" alt="Slide 7">
+        <img src="{{asset('img/bn7.jpg')}}" class="d-block w-100" style="height: 45rem;" alt="Slide 7">
       </div>
       <div class="carousel-item">
-        <img src="/doan2/resources/img/bn8.jpg" class="d-block w-100" style="height: 42rem;" alt="Slide 8">
+        <img src="{{asset('img/bn8.jpg')}}" class="d-block w-100" style="height: 42rem;" alt="Slide 8">
       </div>
       <div class="carousel-item">
-        <img src="/doan2/resources/img/bn9.jpg" class="d-block w-100" style="height: 45rem;" alt="Slide 9">
+        <img src="{{asset('img/bn9.jpg')}}" class="d-block w-100" style="height: 45rem;" alt="Slide 9">
       </div>
     </div>
 

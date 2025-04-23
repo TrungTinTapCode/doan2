@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg ">
         <div class="container-fluid">
             <!-- Logo -->
-            <a class="navbar-brand " href="index.blade.php">
+            <a class="navbar-brand " href="{{route('home')}}">
                 <img src="{{asset ('img/logo-01-01.png') }}" alt="Logo" height="100" width="100%">
             </a>
 
@@ -16,25 +16,25 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav mx-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.blade.php"></i> TRANG CHỦ</a>
+                        <a class="nav-link" href="{{route('home')}}"></i> TRANG CHỦ</a>
                     </li>
                     <li class="nav-item">
-                    <a  class="nav-link" href="{{ route('nguoidung.sanpham') }}">Sản phẩm</a>
+                    <a  class="nav-link" href="{{ route('sanpham') }}">SẢN PHẨM</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="thongbao.php"></i> THÔNG BÁO</a>
+                        <a class="nav-link" href="{{route ('thongbao')}}"></i> THÔNG BÁO</a>
                     </li>
                     <!-- <li class="nav-item">
                         <a class="nav-link" href="blog.php"></i> BLOG</a>
                     </li> -->
                     <li class="nav-item">
-                        <a class="nav-link" href="lienhe.php"></i> LIÊN HỆ CHÚNG TÔI</a>
+                        <a class="nav-link" href="{{route('lienhe')}}"></i> LIÊN HỆ CHÚNG TÔI</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="video.php"></i> VIDEO</a>
+                        <a class="nav-link" href="{{route('video')}}"></i> VIDEO</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="dst.php"></i><b> DST</b></a>
+                        <a class="nav-link" href="{{asset('dst')}}"></i><b> DST</b></a>
                     </li>
                 </ul>
 
@@ -46,7 +46,7 @@
                 <div class="d-flex align-items-center">
                     <a href="./nguoidung.html" class="text-dark me-4"><i
                             class="bi bi-person-circle fs-4 nav-icon"></i></a>
-                    <a href="giohang.php" class="text-dark"><i class="bi bi-cart fs-4 nav-icon"></i></a>
+                    <a href="{{asset('giohang')}}" class="text-dark"><i class="bi bi-cart fs-4 nav-icon"></i></a>
                 </div>
             </div>
         </div>
