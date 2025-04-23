@@ -32,6 +32,8 @@
 
     <label>Ảnh sản phẩm:</label><br>
     <input type="file" name="image"><br><br>
+    <label>Dung tích (VD: 500ml, 250g):</label><br>
+<input type="text" name="volume" value="{{ old('volume', $product->volume ?? '') }}"><br><br>
     <label for="category_id">Danh mục:</label>
 
     <select name="category_id" id="category_id" required>

@@ -16,7 +16,7 @@
 
 </head>
 <body>
-@include('nguoidung.header')
+@include('header')
 
 <div class="container mt-5">
     <h4 class="mb-4">VIDEO</h4>
@@ -59,7 +59,7 @@
 
 
 
-  @include('nguoidung.footer')
+  @include('footer')
 </body>
 </html>
 

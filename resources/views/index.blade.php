@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
 </head>
 <body>
-@include('nguoidung.header')
+@include('header')
     <!-- Content -->
 
     <div class="banner">
@@ -89,75 +89,50 @@
 
 
         <div class="spnoibat">
-            <div class="container text-center my-5">
-            <!-- Tiêu đề -->
-
-            <div class="td2">
+    <div class="container text-center my-5">
+        <div class="td2">
             <span class="section-title">SẢN PHẨM NỔI BẬT</span>
-            </div>
-
-            <!-- Carousel -->
-            <div id="carouselProduct" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-                <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <a href="#sanpham1">
-                    <img src="{{asset('img/san_pham/drceutics-gentle-olive-facial-cleansing-gel-chai-250.png')}}" class="d-block mx-auto product-img" alt="HA" width="100%">
-                    <p class="mt-3">Basic HA Hydration</p>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#sanpham2">
-                    <img src="{{asset('img/san_pham/drceutics-gentle-olive-facial-cleansing-gel-chai-250.png')}}" class="d-block mx-auto product-img" alt="HA" width="100%">
-                    <p class="mt-3">Basic B5 Hydration</p>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#sanpham3">
-                    <img src="{{asset('img/san_pham/drceutics-gentle-olive-facial-cleansing-gel-chai-250.png')}}" class="d-block mx-auto product-img" alt="HA" width="100%">
-                    <p class="mt-3">AHA 10% Exfoliating Serum</p>
-                    </a>
-                </div>
-                </div>
-            </div>
-
-            <!-- Slide 2 (thêm sản phẩm khác nếu muốn) -->
-            <div class="carousel-item">
-                <div class="row justify-content-center">
-                <div class="col-md-4">
-                    <a href="#sanpham4">
-                    <img src="{{asset('img/san_pham/drceutics-gentle-olive-facial-cleansing-gel-chai-250.png')}}" class="d-block mx-auto product-img" alt="HA" width="100%">
-                    <p class="mt-3">Sản phẩm khác 1</p>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#sanpham5">
-                    <img src="{{asset('img/san_pham/drceutics-gentle-olive-facial-cleansing-gel-chai-250.png')}}" class="d-block mx-auto product-img" alt="HA" width="100%">                    <p class="mt-3">Sản phẩm khác 2</p>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#sanpham6">
-                    <img src="{{asset('img/san_pham/drceutics-gentle-olive-facial-cleansing-gel-chai-250.png')}}" class="d-block mx-auto product-img" alt="HA" width="100%">                    <p class="mt-3">Sản phẩm khác 3</p>
-                    </a>
-                </div>
-                </div>
-            </div>
-
-            </div>
-
-            <!-- Nút chuyển slide -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduct" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselProduct" data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
-            </button>
         </div>
+
+        <div id="carouselProduct" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                @php
+                    $i = 0;
+                @endphp
+                @foreach ($featuredProducts->chunk(3) as $chunk)
+                    <div class="carousel-item {{ $i == 0 ? 'active' : '' }}">
+                        <div class="row justify-content-center">
+                            @foreach ($chunk as $product)
+                                <div class="col-md-4">
+                                    <a href="{{ route('sanpham', $product->id) }}">
+                                        @if ($product->image)
+                                            <img src="{{ asset('uploads/' . $product->image) }}" class="d-block mx-auto product-img" alt="{{ $product->name }}" width="100%">
+                                        @else
+                                            <img src="{{ asset('img/default-product.png') }}" class="d-block mx-auto product-img" alt="No Image" width="100%">
+                                        @endif
+                                        <p class="mt-3">{{ $product->name }}</p>
+                                    </a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    @php
+                        $i++;
+                    @endphp
+                @endforeach
+            </div>
+
+            @if ($featuredProducts->count() > 3)
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselProduct" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselProduct" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle"></span>
+                </button>
+            @endif
         </div>
-        </div>
+    </div>
+</div>
 
 
         <div class="chatluong">
@@ -262,6 +237,6 @@
     </div>
   </div>
 </section>
-@include('nguoidung.footer')
+@include('footer')
 </body>
 </html>

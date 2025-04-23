@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Nguoidung;
+namespace App\Http\Controllers\trangchu;
 
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 
-class VideoController extends Controller
+class SanPhamController extends Controller
 {
     public function index(): View
     {
-        return view('Video');
+        return view('sanpham');
     }
 }

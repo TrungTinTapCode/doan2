@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Nguoidung;
+namespace App\Http\Controllers\trangchu;
 
 use App\Http\Controllers\Controller;
 use Illuminate\View\View;
 
-class ThongBaoController extends Controller
+class LienHeController extends Controller
 {
     public function index(): View
     {
-        return view('thongbao');
+        return view('lienhe');
     }
 }

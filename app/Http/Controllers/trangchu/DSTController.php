@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\nguoidung;
+namespace App\Http\Controllers\trangchu;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class GioHangController extends Controller
+class DSTController extends Controller
 {
     public function index()
     {
-        return view('giohang');
+        return view('dst');
     }
 }

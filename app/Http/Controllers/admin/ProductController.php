@@ -33,6 +33,7 @@ public function store(Request $request)
         'category_id' => 'required|exists:categories,id',
         'quantity' => 'required|integer|min:0',
         'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        'volume' => 'nullable|string|max:50',
     ]);
 
     if ($request->hasFile('image')) {
@@ -45,7 +46,6 @@ public function store(Request $request)
 
     return redirect()->route('admin.products.index')->with('success', 'Thêm sản phẩm thành công!');
 }
-
 
 // Hiển thị form chỉnh sửa
 public function edit($id)
@@ -64,10 +64,19 @@ public function update(Request $request, $id)
         'price' => 'required|numeric',
         'quantity' => 'required|integer|min:0',
         'category_id' => 'required|exists:categories,id',
+        'image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        'volume' => 'nullable|string|max:50',
     ]);
-
+    if ($request->hasFile('image')) {
+        $imageName = time() . '.' . $request->image->extension();
+        $request->image->move(public_path('uploads'), $imageName);
+        $validated['image'] = $imageName;
+    }
     $product = Product::findOrFail($id);
+    
     $product->update($validated);
+    
+
 
     return redirect()->route('admin.products.index')->with('success', 'Cập nhật thành công!');
 }
@@ -86,5 +95,19 @@ public function show($id)
     $product = Product::findOrFail($id);
     return view('admin.products.show', compact('product'));
 }
+//sp nổi bật
+public function toggleFeatured(Request $request)
+{
+    $productId = $request->input('product_id');
+    $isFeatured = $request->input('is_featured');
+    $product = Product::findOrFail($productId);
+    $product->is_featured = $isFeatured;
+    $product->save();
+    
+    return response()->json(['success' => true]);
+    
+}
+
+
 }
 

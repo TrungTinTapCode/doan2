@@ -16,7 +16,7 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.products.update', $product->id) }}" method="POST">
+    <form action="{{ route('admin.products.update', $product->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -25,7 +25,8 @@
 
         <label>Mô tả:</label><br>
         <textarea name="description">{{ $product->description }}</textarea><br><br>
-
+        <label>Ảnh sản phẩm:</label><br>
+        <input type="file" name="image"><br><br>
         <label>Giá (VNĐ):</label><br>
         <input type="number" name="price" value="{{ $product->price }}"><br><br>
         <select name="category_id">
@@ -34,6 +35,17 @@
             {{ $category->name }}
         </option>
     @endforeach
+</select>
+<br><br>
+
+<label>
+    <input type="checkbox" name="is_featured" value="1" {{ $product->is_featured ? 'checked' : '' }}>
+    Sản phẩm nổi bật
+</label>
+<br>
+<label>Dung tích (VD: 500ml, 250g):</label><br>
+<input type="text" name="volume" value="{{ old('volume', $product->volume ?? '') }}"><br><br>
+
 </select>
 <div class="mb-3">
     <label for="quantity" class="form-label">Số lượng</label>

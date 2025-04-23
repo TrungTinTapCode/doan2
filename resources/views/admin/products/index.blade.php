@@ -15,7 +15,10 @@
     <ul>
         @foreach ($products as $product)
             <li>
-                <strong>{{ $product->name }}</strong> - {{ $product->price }} VNĐ
+                <strong>{{ $product->name }}</strong> -@if ($product->volume)
+                                                            {{ $product->volume }}
+                                                        @endif
+                {{ $product->price }} VNĐ
                 - Tồn kho: {{ $product->quantity }}
 
                 <br>

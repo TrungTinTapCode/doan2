@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
 </head>
 <body>
-@include('nguoidung.header')
+@include('header')
 
 <style>
     .thong-bao-card {
@@ -156,7 +156,7 @@
       </div>
     </div>
   </div>
-  @include('nguoidung.footer')
+  @include('footer')
 </body>
 </html>
 

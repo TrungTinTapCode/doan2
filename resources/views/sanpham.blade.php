@@ -18,7 +18,7 @@
 
 </head>
 <body>
-@include('nguoidung.header')
+@include('header')
 <div class="banner">
   <div id="demo" class="carousel slide" data-bs-ride="carousel" style="cursor: pointer;">
 
@@ -154,7 +154,7 @@
 </section>
 
 
-@include('nguoidung.footer')
+@include('footer')
 </body>
 </html>
 

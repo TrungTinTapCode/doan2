@@ -16,7 +16,7 @@
 
 </head>
 <body>
-@include('nguoidung.header')
+@include('header')
     <div class="td1">
         <h3>DRCEUTICS OFFICIAL STORE TỪ THƯƠNG HIỆU NON TRẺ <br> ĐẾN CÁI TÊN SÁNG GIÁ TRÊN THỊ TRƯỜNG MỸ PHẨM THUẦN VIỆT</h3>
     </div>
@@ -27,7 +27,7 @@
 
 
 
-@include('nguoidung.footer')
+@include('footer')
 </body>
 </html>
 
