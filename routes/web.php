@@ -27,12 +27,17 @@ Route::middleware('auth:customer')->group(function () {
     Route::get('/hoso', [NguoiDungController::class, 'index'])->name('nguoidung.hoso');
 });
 
+
 //Nguoidung 
 Route::get('/nguoidung/login', [AuthCustomerController::class, 'showLoginForm'])->name('nguoidung.login');
 Route::post('/nguoidung/login', [AuthCustomerController::class, 'login']);
 Route::get('/nguoidung/register', [AuthCustomerController::class, 'showRegisterForm'])->name('nguoidung.register');
 Route::post('/nguoidung/register', [AuthCustomerController::class, 'register']);
+
 Route::post('/nguoidung/logout', [AuthCustomerController::class, 'logout'])->name('nguoidung.logout');
+// Laravel yêu cầu phải có route tên 'login' khi dùng middleware 'auth'
+Route::get('/login', function () {return redirect()->route('nguoidung.login');})->name('login');
+
 // Trang admin
 Route::prefix('admin')->name('admin.')->group(function () {
     // Quản lý sản phẩm

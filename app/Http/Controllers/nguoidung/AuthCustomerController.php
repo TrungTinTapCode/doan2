@@ -1,11 +1,10 @@
 <?php
-
 namespace App\Http\Controllers\nguoidung;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Customer;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Customer;
 use Illuminate\Support\Facades\Hash;
 
 class AuthCustomerController extends Controller
@@ -15,13 +14,13 @@ class AuthCustomerController extends Controller
     }
 
     public function login(Request $request) {
-        $credentials = $request->only('username', 'password');
+        $credentials = $request->only('email', 'password');
 
         if (Auth::guard('customer')->attempt($credentials)) {
-            return redirect()->route('home');
+            return redirect()->route('nguoidung.hoso');
         }
 
-        return back()->withErrors(['username' => 'Tài khoản hoặc mật khẩu không đúng']);
+        return back()->withErrors(['email' => 'Thông tin đăng nhập không chính xác']);
     }
 
     public function showRegisterForm() {
@@ -29,11 +28,10 @@ class AuthCustomerController extends Controller
     }
 
     public function register(Request $request) {
+        
         $request->validate([
-            'username' => 'required|unique:customers',
             'name' => 'required',
-            'phone' => 'required|unique:customers',
-            'email' => 'required|email|unique:customers',
+            'email' => 'required|email|unique:customers,email',
             'password' => 'required|min:6|confirmed',
         ]);
 
@@ -44,19 +42,15 @@ class AuthCustomerController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
+        
 
         Auth::guard('customer')->login($customer);
+
         return redirect()->route('nguoidung.hoso');
     }
 
-    public function logout(Request $request)
-{
-    auth('customer')->logout();
-
-    $request->session()->invalidate();
-    $request->session()->regenerateToken();
-
-    return redirect()->route('home'); 
-}
-
+    public function logout() {
+        Auth::guard('customer')->logout();
+        return redirect()->route('nguoidung.login');
+    }
 }
