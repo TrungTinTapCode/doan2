@@ -44,7 +44,7 @@
                 </form>
 
                 <div class="d-flex align-items-center">
-                    <a href="{{ asset ('hoso')}}" class="text-dark me-4"><i
+                    <a href="{{ route ('nguoidung.hoso')}}" class="text-dark me-4"><i
                             class="bi bi-person-circle fs-4 nav-icon"></i></a>
                     <a href="{{asset('giohang')}}" class="text-dark"><i class="bi bi-cart fs-4 nav-icon"></i></a>
                 </div>
