@@ -257,6 +257,7 @@
     </style>
 </head>
 <body>
+    @include('header')
     <div class="container-fluid">
         <div class="row g-0">
             <!-- Sidebar -->
@@ -406,5 +407,6 @@
 
     <!-- Bootstrap 5.3 JS Bundle with Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    @include('footer')
 </body>
 </html>
