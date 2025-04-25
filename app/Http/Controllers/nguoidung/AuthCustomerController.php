@@ -14,13 +14,13 @@ class AuthCustomerController extends Controller
     }
 
     public function login(Request $request) {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('username', 'password');
 
         if (Auth::guard('customer')->attempt($credentials)) {
             return redirect()->route('nguoidung.hoso');
         }
 
-        return back()->withErrors(['email' => 'Thông tin đăng nhập không chính xác']);
+        return back()->withErrors(['username' => 'Thông tin đăng nhập không chính xác']);
     }
 
     public function showRegisterForm() {
@@ -30,6 +30,7 @@ class AuthCustomerController extends Controller
     public function register(Request $request) {
         
         $request->validate([
+            'username' => 'required',
             'name' => 'required',
             'email' => 'required|email|unique:customers,email',
             'password' => 'required|min:6|confirmed',
