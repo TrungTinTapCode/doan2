@@ -29,8 +29,10 @@ Route::middleware('auth:customer')->group(function () {
 
 
 //Nguoidung 
+
 Route::get('/nguoidung/login', [AuthCustomerController::class, 'showLoginForm'])->name('nguoidung.login');
 Route::post('/nguoidung/login', [AuthCustomerController::class, 'login']);
+Route::post('/login', [AuthCustomerController::class, 'login'])->name('login');
 Route::get('/nguoidung/register', [AuthCustomerController::class, 'showRegisterForm'])->name('nguoidung.register');
 Route::post('/nguoidung/register', [AuthCustomerController::class, 'register']);
 
@@ -49,7 +51,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
     
-
 
     // Quản lý danh mục sản phẩm
     Route::resource('categories', CategoryController::class);

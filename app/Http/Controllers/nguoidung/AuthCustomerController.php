@@ -9,49 +9,52 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthCustomerController extends Controller
 {
-    public function showLoginForm() {
+
+     /**
+     * Hiển thị form đăng nhập
+     */
+    public function showLoginForm()
+    {
         return view('nguoidung.login');
     }
 
-    public function login(Request $request) {
-        $credentials = $request->only('username', 'password');
-
-        if (Auth::guard('customer')->attempt($credentials)) {
-            return redirect()->route('nguoidung.hoso');
-        }
-
-        return back()->withErrors(['username' => 'Thông tin đăng nhập không chính xác']);
-    }
-
-    public function showRegisterForm() {
-        return view('nguoidung.register');
-    }
-
-    public function register(Request $request) {
-        
+    /**
+     * Xử lý yêu cầu đăng nhập
+     */
+    public function login(Request $request)
+    {
         $request->validate([
             'username' => 'required',
-            'name' => 'required',
-            'email' => 'required|email|unique:customers,email',
-            'password' => 'required|min:6|confirmed',
+            'password' => 'required',
+        ], [
+            'username.required' => 'Vui lòng nhập tên đăng nhập',
+            'password.required' => 'Vui lòng nhập mật khẩu',
         ]);
 
-        $customer = Customer::create([
-            'username' => $request->username,
-            'name' => $request->name,
-            'phone' => $request->phone,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
-        
+        $user = Customer::where('username', $request->username)->first();
 
-        Auth::guard('customer')->login($customer);
+        if ($user && Hash::check($request->password, $user->password)) {
+            // Đăng nhập thành công
+            Auth::login($user);
+            
+            // Lưu thông tin vào session nếu cần (Laravel đã tự động làm điều này)
+            session(['email' => $user->email]);
+            
+            return redirect()->route('home');
+        }
 
-        return redirect()->route('nguoidung.hoso');
+        // Đăng nhập thất bại
+        return back()->with('error', 'Tên đăng nhập hoặc mật khẩu không đúng');
     }
-
-    public function logout() {
-        Auth::guard('customer')->logout();
-        return redirect()->route('nguoidung.login');
+    /**
+     * Đăng xuất người dùng
+     */
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        
+        return redirect()->route('login');
     }
 }
