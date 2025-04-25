@@ -9,8 +9,8 @@
 <form action="{{ route('nguoidung.register') }}" method="POST">
     @csrf
 
-    <input type="text" name="username" placeholder="Username">
     <input type="text" name="name" placeholder="Họ tên">
+    <input type="text" name="username" placeholder="Username">
     <input type="text" name="phone" placeholder="Số điện thoại">
     <input type="email" name="email" placeholder="Email">
     <input type="password" name="password" placeholder="Mật khẩu">
