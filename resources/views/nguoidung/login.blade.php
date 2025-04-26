@@ -85,6 +85,23 @@
                 </div>
             </div>
         @endif
+        @if(session('success'))
+    <div id="success-alert" class="alert alert-success mt-3" role="alert">
+        {{ session('success') }}
+    </div>
+
+    <script>
+        // Tự động ẩn thông báo sau 3 giây
+        setTimeout(function() {
+            const successAlert = document.getElementById('success-alert');
+            if (successAlert) {
+                successAlert.style.transition = 'opacity 0.5s ease';
+                successAlert.style.opacity = '0';
+                setTimeout(() => successAlert.remove(), 500);
+            }
+        }, 3000);
+    </script>
+@endif
     </form>
 </div>
 </body>

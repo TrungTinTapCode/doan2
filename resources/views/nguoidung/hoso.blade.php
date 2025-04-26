@@ -267,7 +267,8 @@
                         <i class="bi bi-person"></i>
                     </div>
                     <div>
-                        <div>Nguyen Van A</div>
+                        <!-- <div>Nguyen Van A</div> -->
+                        <div>{{ Auth::guard('customer')->user()->name }}</div>
                         <a href="#" class="edit-link">
                             <i class="bi bi-pencil edit-icon"></i>Sửa Hồ Sơ
                         </a>
@@ -314,27 +315,31 @@
                 <div class="form-content">
                     <div class="form-row">
                         <div class="form-label">Tên đăng nhập</div>
-                        <div class="form-field">Nuyenvana123</div>
+                        <div class="form-field">{{ Auth::guard('customer')->user()->username }}</div>
+                        <!-- <div class="form-field">Nuyenvana123</div> -->
                     </div>
                     
                     <div class="form-row">
-                        <div class="form-label">Tên</div>
-                        <div class="form-field">
+                        <div class="form-label">Tên</div> 
+                        <div class="form-field"> {{ Auth::guard('customer')->user()->name }}</div>
+                        <!-- <div class="form-field">
                             <input type="text" class="form-control">
-                        </div>
+                        </div> -->
                     </div>
                     
                     <div class="form-row">
                         <div class="form-label">Email</div>
                         <div class="form-field">
-                            <a href="#" class="add-link">Thêm</a>
+                            {{ Auth::guard('customer')->user()->email }}
+                            <a href="#" class="add-link">Đổi email</a>
                         </div>
                     </div>
                     
                     <div class="form-row">
                         <div class="form-label">Số điện thoại</div>
                         <div class="form-field">
-                            *********90
+                        {{ Auth::guard('customer')->user()->phone }}
+                           
                             <a href="#" class="change-link">Thay Đổi</a>
                         </div>
                     </div>

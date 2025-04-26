@@ -131,4 +131,14 @@ class AuthCustomerController extends Controller
         
         return redirect()->route('nguoidung.login');
     }
+
+    public function showProfile()
+    {
+        if (!Auth::guard('customer')->check()) {
+            return redirect()->route('nguoidung.login');
+        }
+        
+        return view('nguoidung.hoso');
+    }
 }
+
