@@ -67,7 +67,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link link-secondary fs-6" href="{{ route('home') }}">
+                                <a class="nav-link link-secondary fs-6" href="{{ route('nguoidung.register') }}">
                                     Đăng ký
                                 </a>
                             </li>
