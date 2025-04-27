@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CategoryController;
+use App\Http\Controllers\admin\OrderController;
 use App\Http\Controllers\trangchu\HomeController;
 use App\Http\Controllers\trangchu\SanPhamController;
 use App\Http\Controllers\trangchu\ThongBaoController;
@@ -12,6 +13,8 @@ use App\Http\Controllers\trangchu\GioHangController;
 use App\Http\Controllers\trangchu\DSTController;
 use App\Http\Controllers\nguoidung\AuthCustomerController;
 use App\Http\Controllers\nguoidung\NguoiDungController;
+use App\Http\Controllers\nguoidung\CartController;
+
 
 // Trang chu
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -54,7 +57,23 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
     
+    
 
     // Quản lý danh mục sản phẩm
     Route::resource('categories', CategoryController::class);
 });
+//khúc này đang làm giỏ hàng
+// Cart - Giỏ hàng
+Route::prefix('cart')->name('cart.')->group(function () {
+    Route::get('/', [CartController::class, 'index'])->name('index');
+    Route::post('/add', [CartController::class, 'add'])->name('add');
+    Route::post('/update', [CartController::class, 'update'])->name('update');
+    Route::post('/remove', [CartController::class, 'remove'])->name('remove');
+    Route::post('/clear', [CartController::class, 'clear'])->name('clear');
+});
+// Order - Đặt hàng
+Route::prefix('order')->name('order.')->group(function () {
+    Route::get('/checkout', [OrderController::class, 'checkoutForm'])->name('checkoutForm');
+    Route::post('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+});
+
