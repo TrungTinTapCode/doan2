@@ -33,7 +33,7 @@ Route::get('/thongbao', [ThongBaoController::class, 'index'])->name('thongbao');
 Route::get('/lienhe', [LienHeController::class, 'index'])->name('lienhe');
 Route::get('/video', [VideoController::class, 'index'])->name('video');
 Route::get('/giohang', [GioHangController::class, 'index'])->name('giohang');
-<<<<<<< HEAD
+
 Route::get('/dst',[DSTController::class, 'index'])->name('dst');
 Route::get('/sanpham/{id}', [SanPhamController::class, 'show'])->name('sanpham.show');
 
@@ -46,11 +46,11 @@ Route::middleware('auth:customer')->group(function () {
 
 
 //Nguoidung
-=======
+
 Route::get('/dst', [DSTController::class, 'index'])->name('dst');
 
 /* ==================== Người Dùng - Khách Hàng ==================== */
->>>>>>> 4055957ab84aa1fa71bb645c1ee42ec7a50d4e1a
+
 Route::get('/nguoidung/login', [AuthCustomerController::class, 'showLoginForm'])->name('nguoidung.login');
 Route::post('/nguoidung/login', [AuthCustomerController::class, 'login']);
 Route::get('/nguoidung/register', [AuthCustomerController::class, 'showRegisterForm'])->name('nguoidung.register');
@@ -92,10 +92,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-<<<<<<< HEAD
 
-=======
->>>>>>> 4055957ab84aa1fa71bb645c1ee42ec7a50d4e1a
+
 
     // Quản lý đơn hàng
     Route::get('/orders', [OrdersController::class, 'index'])->name('orders.index');
@@ -116,5 +114,5 @@ Route::post('/logout', function () {
 
 //thanh menu
 Route::get('/menu', function () {
-    return view('menu');  
+    return view('menu');
 })->name('menu');
