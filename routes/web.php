@@ -22,13 +22,16 @@ Route::get('/video', [VideoController::class, 'index'])->name('video');
 Route::get('/giohang', [GioHangController::class, 'index'])->name('giohang');
 Route::get('/dst',[DSTController::class, 'index'])->name('dst');
 Route::get('/sanpham/{id}', [SanPhamController::class, 'show'])->name('sanpham.show');
+
+
+
 //khachchuadangnhap
 Route::middleware('auth:customer')->group(function () {
     Route::get('/hoso', [NguoiDungController::class, 'index'])->name('nguoidung.hoso');
 });
 
 
-//Nguoidung 
+//Nguoidung
 Route::get('/nguoidung/login', [AuthCustomerController::class, 'showLoginForm'])->name('nguoidung.login');
 Route::post('/nguoidung/login', [AuthCustomerController::class, 'login']);
 Route::get('/nguoidung/register', [AuthCustomerController::class, 'showRegisterForm'])->name('nguoidung.register');
@@ -48,9 +51,22 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
     Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
     Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-    
+
 
 
     // Quản lý danh mục sản phẩm
     Route::resource('categories', CategoryController::class);
 });
+
+  //edit
+use Illuminate\Support\Facades\Auth;
+
+Route::post('/logout', function () {
+    Auth::logout();
+    return redirect('/login');
+})->name('logout');
+
+//thanh menu
+Route::get('/menu', function () {
+    return view('menu');  
+})->name('menu');
