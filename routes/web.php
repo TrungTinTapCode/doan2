@@ -56,6 +56,7 @@ Route::post('/nguoidung/login', [AuthCustomerController::class, 'login']);
 Route::get('/nguoidung/register', [AuthCustomerController::class, 'showRegisterForm'])->name('nguoidung.register');
 Route::post('/nguoidung/register', [AuthCustomerController::class, 'register'])->name('nguoidung.register.post');
 Route::post('/nguoidung/logout', [AuthCustomerController::class, 'logout'])->name('nguoidung.logout');
+Route::post('/login', [AuthCustomerController::class, 'login']);
 
 // Laravel yêu cầu route 'login' cho middleware 'auth'
 Route::get('/login', function () {
