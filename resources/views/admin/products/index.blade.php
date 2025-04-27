@@ -185,7 +185,27 @@
 </style>
 </head>
 <body>
+<<<<<<< HEAD
 @include('menu')
+=======
+    <h1>Danh sách sản phẩm</h1>
+    <a href="{{ route('admin.products.create') }}">
+    <button type="button">Thêm sản phẩm</button>
+    <a href="{{ route('admin.categories.index') }}">
+    <button type="button">Quản lý danh mục</button>
+    <a href="{{ route('admin.orders.index') }}">
+    <button type="button">Quản lý đơn hàng</button>
+</a>
+</a>
+    <ul>
+        @foreach ($products as $product)
+            <li>
+                <strong>{{ $product->name }}</strong> -@if ($product->volume)
+                                                            {{ $product->volume }}
+                                                        @endif
+                {{ $product->price }} VNĐ
+                - Tồn kho: {{ $product->quantity }}
+>>>>>>> 4055957ab84aa1fa71bb645c1ee42ec7a50d4e1a
 
     <div class="container">
         <h1>Danh sách sản phẩm</h1>

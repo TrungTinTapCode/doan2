@@ -114,12 +114,13 @@
             <div class="product-description">
                 <p>{{ $product->description }}</p>
             </div>
-            <!-- {{-- 
-                <form action="{{ route('cart.add', $product->id) }}" method="POST">
-                    @csrf
-                <button type="submit" class="add-to-cart">Thêm vào giỏ hàng</button>
-                </form>
-            --}} -->
+            
+            <form action="{{ route('cart.add') }}" method="POST">
+            @csrf
+            <input type="hidden" name="product_id" value="{{ $product->id }}">
+            <button type="submit" class="add-to-cart">Thêm vào giỏ hàng</button>
+            </form>
+            
         </div>
     </div>
     @include('footer')
