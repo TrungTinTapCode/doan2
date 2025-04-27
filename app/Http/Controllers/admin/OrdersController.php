@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 
-class OrderController extends Controller
+class OrdersController extends Controller
 {
     // Hiển thị danh sách tất cả đơn hàng
     public function index()
@@ -18,13 +18,18 @@ class OrderController extends Controller
 
     // Cập nhật trạng thái đơn hàng (duyệt đơn)
     public function updateStatus(Request $request, $id)
-    {
-        $order = Order::findOrFail($id);
-        $order->status = $request->status; // status gửi lên từ form
-        $order->save();
+{
+    $request->validate([
+        'status' => 'required|in:pending,processing,cancelled',
+    ]);
 
-        return redirect()->route('admin.orders.index')->with('success', 'Cập nhật trạng thái đơn hàng thành công!');
-    }
+    $order = Order::findOrFail($id);
+    $order->status = $request->status;
+    $order->save();
+
+    return redirect()->route('admin.orders.index')->with('success', 'Cập nhật trạng thái đơn hàng thành công!');
+}
+
     
     public function show($id)
 {

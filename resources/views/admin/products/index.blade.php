@@ -10,6 +10,8 @@
     <button type="button">Thêm sản phẩm</button>
     <a href="{{ route('admin.categories.index') }}">
     <button type="button">Quản lý danh mục</button>
+    <a href="{{ route('admin.orders.index') }}">
+    <button type="button">Quản lý đơn hàng</button>
 </a>
 </a>
     <ul>
