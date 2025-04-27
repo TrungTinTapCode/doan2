@@ -182,25 +182,29 @@
             background-color: rgb(0, 103, 207) !important; /* Màu xanh dương đậm hơn khi hover */
             border-color: rgb(0, 103, 207) !important; /* Viền màu xanh dương đậm hơn khi hover */
         }
+        #search-form {
+            width: 300px; /* Điều chỉnh chiều rộng theo ý muốn */
+            margin-left: 575px;
+        }
+
+
+
 </style>
 </head>
 <body>
 @include('menu')
 
 <div class="container">
-    <h1>Danh sách sản phẩm</h1>
-    <!-- <div class="button-group">
-        <a href="{{ route('admin.products.create') }}">
-            <button type="button">Thêm sản phẩm</button>
-        </a>
-        <a href="{{ route('admin.categories.index') }}">
-            <button type="button">Quản lý danh mục</button>
-        </a>
-        <a href="{{ route('admin.orders.index') }}">
-            <button type="button">Quản lý đơn hàng</button>
-        </a>
-    </div> -->
-    <div class="row">
+    <h1>Danh sách sản phẩm </h1>
+
+    <form action="{{ route('admin.products.index') }}" method="GET" class="mb-4" id="search-form">
+        <div class="input-group">
+            <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm..." value="{{ request('keyword') }}">
+            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+        </div>
+    </form>
+
+<div class="row">
         @foreach ($products as $product)
             <div class="col-md-4 mb-4">
                 <div class="card h-100 shadow-sm">

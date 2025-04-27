@@ -39,9 +39,18 @@
                 </ul>
 
                 <!-- Tìm kiếm và Icon Người dùng, Giỏ hàng -->
-                <form class="d-flex mb-2 mb-lg-0 ">
-                    <input class="form-control me-4 border border-secondary rounded-4" type="search" placeholder="Tìm kiếm..." aria-label="Search">
-                </form>
+                <!-- <form class="d-flex mb-2 mb-lg-0 " action="search.php" method="GET">
+                    <input class="form-control me-4 border border-secondary rounded-4" type="search" placeholder="Tìm kiếm..." aria-label="Search" name="keyword">
+                    <button class="btn btn-outline-success" type="submit">Tìm</button>
+                </form> -->
+                <!-- <form action="{{ route('admin.products.index') }}" method="GET" class="mb-4">
+                    <div class="input-group">
+                        <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm..." value="{{ request('keyword') }}">
+                        <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+                    </div>
+                </form> -->
+
+
 
                 <div class="d-flex align-items-center">
                     <a href="{{ route ('nguoidung.hoso')}}" class="text-dark me-4"><i

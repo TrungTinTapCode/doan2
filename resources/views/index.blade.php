@@ -237,6 +237,8 @@
     </div>
   </div>
 </section>
+
+
 @include('footer')
 </body>
 </html>

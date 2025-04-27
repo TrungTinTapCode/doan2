@@ -21,7 +21,7 @@
 
             </ul>
         </div>
-<!-- 
+<!--
         <div style="flex-grow: 1; text-align: center;">
             <a class="navbar-brand" href="{{route('home')}}" style="display: inline-block; width: 30%;">
                 <img src="{{asset ('img/logo-01-01.png') }}" alt="Logo">
