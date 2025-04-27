@@ -37,8 +37,8 @@
     </div>
     @endif
     
-    <form action="{{ route('register') }}" method="POST">
-     @csrf
+    <form action="{{ route('nguoidung.register.post') }}" method="POST">
+    @csrf
         <div class="row justify-content-center">
             <div class="col-md-4 mt-3">
                 <input type="text" name="name" id="name" 

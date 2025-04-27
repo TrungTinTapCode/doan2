@@ -21,7 +21,7 @@ class OrderController extends Controller
             return redirect()->route('cart.index')->with('error', 'Giỏ hàng đang trống!');
         }
 
-        return view('trangchu.cart.checkout', compact('cart'));
+        return view('nguoidung.cart.checkout', compact('cart'));
     }
 
     // 2. Xử lý đặt đơn hàng

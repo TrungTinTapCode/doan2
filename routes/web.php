@@ -37,9 +37,9 @@ Route::get('/nguoidung/login', [AuthCustomerController::class, 'showLoginForm'])
 Route::post('/nguoidung/login', [AuthCustomerController::class, 'login']);
 Route::post('/login', [AuthCustomerController::class, 'login'])->name('login');
 Route::get('/nguoidung/register', [AuthCustomerController::class, 'showRegisterForm'])->name('nguoidung.register');
-Route::post('/nguoidung/register', [AuthCustomerController::class, 'register'])->name(' nguoidung.register.post');
-Route::get('/register', [AuthCustomerController::class, 'showRegisterForm'])->name('register');
-Route::post('/register', [AuthCustomerController::class, 'register']);
+Route::post('/nguoidung/register', [AuthCustomerController::class, 'register'])->name('nguoidung.register.post');
+// Route::get('/register', [AuthCustomerController::class, 'showRegisterForm'])->name('register');
+// Route::post('/register', [AuthCustomerController::class, 'register']);
 
 
 Route::post('/nguoidung/logout', [AuthCustomerController::class, 'logout'])->name('nguoidung.logout');

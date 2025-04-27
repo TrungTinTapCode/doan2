@@ -88,7 +88,7 @@ class AuthCustomerController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->route('register')
+            return redirect()->route('nguoidung.register')
                 ->withErrors($validator)
                 ->withInput();
         }
@@ -114,7 +114,7 @@ class AuthCustomerController extends Controller
             // Ghi chi tiết lỗi vào log
             Log::error('Lỗi đăng ký: ' . $e->getMessage() . ' at ' . $e->getFile() . ':' . $e->getLine());
             
-            return redirect()->route('register')
+            return redirect()->route('nguoidung.register')
                 ->withInput()
                 ->withErrors(['database' => 'Lỗi: ' . $e->getMessage()]);
         }

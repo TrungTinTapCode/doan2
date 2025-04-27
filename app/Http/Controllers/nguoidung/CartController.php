@@ -5,16 +5,20 @@ namespace App\Http\Controllers\nguoidung;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
     // 1. Hiển thị giỏ hàng
     public function index()
-    {
-        $cart = session()->get('cart', []);
+{
+    $cart = session()->get('cart', []);
 
-        return view('trangchu.cart.index', compact('cart'));
-    }
+    // Lấy customer đang login
+    $customer = Auth::guard('customer')->user();
+
+    return view('nguoidung.cart.index', compact('cart', 'customer'));
+}
 
     // 2. Thêm sản phẩm vào giỏ
     public function add(Request $request)

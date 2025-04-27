@@ -4,7 +4,11 @@
     <title>Giỏ hàng</title>
 </head>
 <body>
-    <h1>Giỏ hàng của bạn</h1>
+<h1>Giỏ hàng của bạn</h1>
+
+@if ($customer)
+    <p>Giỏ hàng của: {{ $customer->name }} ({{ $customer->email }})</p>
+@endif
 
     @if (session('success'))
         <div style="color:green;">{{ session('success') }}</div>
