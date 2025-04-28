@@ -18,9 +18,9 @@ class ProductController extends Controller
             $keyword = $request->keyword;
             $query->where(function($q) use ($keyword) {
                 $q->where('name', 'LIKE', '%' . $keyword . '%')
-                  ->orWhere('volume', 'LIKE', '%' . $keyword . '%')
-                  ->orWhere('price', 'LIKE', '%' . $keyword . '%')
-                  ->orWhere('quantity', 'LIKE', '%' . $keyword . '%');
+                ->orWhere('volume', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('price', 'LIKE', '%' . $keyword . '%')
+                ->orWhere('quantity', 'LIKE', '%' . $keyword . '%');
             });
         }
 
