@@ -9,14 +9,15 @@
 @if ($customer)
     <p>Giỏ hàng của: {{ $customer->name }} ({{ $customer->email }})</p>
 @endif
-
+<a href="{{ route('nguoidung.orders.history') }}" class="mt-4 inline-block px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
+    Xem lịch sử đơn hàng
+</a>
     @if (session('success'))
         <div style="color:green;">{{ session('success') }}</div>
     @endif
     @if (session('error'))
         <div style="color:red;">{{ session('error') }}</div>
     @endif
-
     @if (empty($cart) || count($cart) == 0)
         <p>Giỏ hàng đang trống.</p>
     @else

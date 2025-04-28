@@ -29,7 +29,7 @@ class CartController extends Controller
         $product = Product::find($productId);
 
         if (!$product) {
-            return response()->json(['success' => false, 'message' => 'Sản phẩm không tồn tại']);
+            return redirect()->back()->with('error', 'Sản phẩm không tồn tại');
         }
 
         $cart = session()->get('cart', []);
@@ -47,7 +47,7 @@ class CartController extends Controller
 
         session()->put('cart', $cart);
 
-        return response()->json(['success' => true, 'message' => 'Đã thêm vào giỏ hàng']);
+        return redirect()->back()->with('success', 'Đã thêm sản phẩm vào giỏ hàng!');
     }
 
     // 3. Cập nhật số lượng sản phẩm trong giỏ
@@ -57,7 +57,7 @@ class CartController extends Controller
         $quantity = $request->quantity;
 
         if ($quantity <= 0) {
-            return response()->json(['success' => false, 'message' => 'Số lượng phải lớn hơn 0']);
+            return redirect()->back()->with('error', 'Số lượng phải lớn hơn 0');
         }
 
         $cart = session()->get('cart', []);
@@ -65,10 +65,10 @@ class CartController extends Controller
         if (isset($cart[$productId])) {
             $cart[$productId]['quantity'] = $quantity;
             session()->put('cart', $cart);
-            return response()->json(['success' => true, 'message' => 'Đã cập nhật số lượng']);
+            return redirect()->back()->with('success', 'Đã cập nhật số lượng');
         }
 
-        return response()->json(['success' => false, 'message' => 'Sản phẩm không tồn tại trong giỏ hàng']);
+        return redirect()->back()->with('error', 'Sản phẩm không tồn tại trong giỏ hàng');
     }
 
     // 4. Xóa 1 sản phẩm khỏi giỏ
@@ -81,16 +81,16 @@ class CartController extends Controller
         if (isset($cart[$productId])) {
             unset($cart[$productId]);
             session()->put('cart', $cart);
-            return response()->json(['success' => true, 'message' => 'Đã xóa sản phẩm']);
+            return redirect()->back()->with('success', 'Đã xoá sản phẩm khỏi giỏ hàng');
         }
 
-        return response()->json(['success' => false, 'message' => 'Sản phẩm không tồn tại trong giỏ hàng']);
+        return redirect()->back()->with('error', 'Sản phẩm không tồn tại trong giỏ hàng');
     }
 
     // 5. Xóa toàn bộ giỏ hàng
     public function clear()
     {
         session()->forget('cart');
-        return response()->json(['success' => true, 'message' => 'Đã xoá toàn bộ giỏ hàng']);
+        return redirect()->back()->with('success', 'Đã xoá toàn bộ giỏ hàng');
     }
 }

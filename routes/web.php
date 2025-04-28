@@ -66,7 +66,7 @@ Route::get('/login', function () {
 /* ==================== Hồ Sơ Khách Hàng - (Cần Đăng Nhập) ==================== */
 Route::middleware('auth:customer')->group(function () {
     Route::get('/hoso', [NguoiDungController::class, 'index'])->name('nguoidung.hoso');
-
+    Route::get('lich-su-don-hang', [OrderController::class, 'history'])->name('nguoidung.orders.history');
     // Order - Đặt hàng
     Route::prefix('order')->name('order.')->group(function () {
         Route::get('/checkout', [OrderController::class, 'checkoutForm'])->name('checkoutForm');

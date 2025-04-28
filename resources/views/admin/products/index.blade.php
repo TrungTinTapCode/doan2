@@ -219,7 +219,7 @@
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text">
                             @if ($product->volume)
-                                {{ $product->volume }},
+                                {{ $product->volume }}.
                             @endif
                             {{ number_format($product->price) }} VNĐ
                             <br>

@@ -62,4 +62,27 @@ class OrderController extends Controller
         return redirect()->back()->with('error', 'Có lỗi xảy ra: ' . $e->getMessage());
     }
 }
+public function history()
+    {
+        $customer = Auth::guard('customer')->user();
+
+        // Lấy các đơn hàng của khách đang login
+        $orders = Order::where('customer_id', $customer->id)
+                        ->with('orderDetails.product') // lấy thêm chi tiết đơn + sản phẩm
+                        ->orderBy('created_at', 'desc')
+                        ->get();
+
+        return view('nguoidung.orders.history', compact('orders'));
+    }
+    public function checkoutForm()
+    {
+        // Lấy thông tin giỏ hàng
+        $cart = session()->get('cart', []);
+    
+        // Lấy thông tin khách hàng đang đăng nhập
+        $customer = Auth::guard('customer')->user();
+    
+        return view('nguoidung.cart.checkout', compact('cart', 'customer'));
+    }
+    
 }

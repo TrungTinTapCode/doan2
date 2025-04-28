@@ -133,6 +133,12 @@
                     <h1> <?= ($product['price']) ?>đ</h1>
                     <button type="submit" class="add-to-cart">Thêm vào giỏ hàng</button>
                 </div>
+                @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
+
             </form>
 
         </div>
