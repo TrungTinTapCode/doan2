@@ -102,7 +102,7 @@
 
 
   <div class="container">
-    <h1>Giỏ Hàng của bạn</h1>
+    <h1>Đơn Hàng của bạn</h1>
 
     <!-- Danh sách sản phẩm -->
     <div class="product-list">
@@ -111,17 +111,10 @@
         <div class="product-info">
           <h3>Mỹ phẩm Drceutics</h3>
           <p>Giá: 500,000 VND</p>
-          <label for="size">Chọn Size:</label>
-          <select id="size">
-            <option value="S">Size S</option>
-            <option value="M">Size M</option>
-            <option value="L">Size L</option>
-          </select>
 
           <label for="quantity">Số lượng:</label>
           <input type="number" id="quantity" value="1" min="1">
 
-          <button type="button">Thêm vào giỏ hàng</button>
         </div>
       </div>
     </div>
@@ -134,12 +127,6 @@
 
       <label for="phone">Số điện thoại giao hàng <span class="required">*</span>:</label>
       <input type="tel" id="phone" placeholder="Nhập số điện thoại giao hàng">
-
-      <label for="delivery-method">Chọn phương thức giao hàng:</label>
-      <select id="delivery-method">
-        <option value="standard">Giao hàng tiêu chuẩn</option>
-        <option value="express">Giao hàng nhanh</option>
-      </select>
 
       <label for="notes">Ghi chú (tùy chọn):</label>
       <textarea id="notes" rows="4" placeholder="Nhập ghi chú nếu có..."></textarea>
