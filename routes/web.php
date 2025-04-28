@@ -73,6 +73,9 @@ Route::get('/lich-su-don-hang', [OrderController::class, 'history'])->name('nguo
     Route::prefix('order')->name('order.')->group(function () {
         Route::get('/checkout', [OrderController::class, 'checkoutForm'])->name('checkout.form');
         Route::post('/checkout', [OrderController::class, 'checkout'])->name('checkout');
+        // Route đặt hàng từ form checkout
+Route::post('/checkout', [OrderController::class, 'placeOrder'])->name('nguoidung.order.place');
+
     });
 });
 
