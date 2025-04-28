@@ -111,6 +111,35 @@
             font-size: 24px;
             font-weight: bold;
         }
+        .add-to-cart {
+            background-color:rgb(105, 105, 105); /* màu cam nổi bật */
+            color: white;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-left: 345px;
+        }
+
+        .add-to-cart:hover {
+            background-color:rgb(121, 121, 121); /* đậm hơn khi hover */
+            transform: translateY(-2px);
+        }
+
+        .add-to-cart:active {
+            background-color:rgb(196, 196, 196);
+            transform: translateY(0);
+        }
+
+        .add-to-cart:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(130, 130, 130, 0.4);
+        }
+
     </style>
 </head>
 
@@ -131,8 +160,9 @@
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
                 <div class="product-gia">
                     <h1> <?= ($product['price']) ?>đ</h1>
-                    <button type="submit" class="add-to-cart">Thêm vào giỏ hàng</button>
                 </div>
+                <br>
+                <button type="submit" class="add-to-cart">Thêm vào giỏ hàng</button>
                 @if (session('success'))
     <div class="alert alert-success">
         {{ session('success') }}
