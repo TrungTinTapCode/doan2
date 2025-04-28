@@ -35,7 +35,7 @@ class OrderController extends Controller
         }
 
         $order = new Order();
-        $order->customer_id = Auth::guard('customer'); // Không cần check vì đã login rồi
+        $order->customer_id = Auth::id(); // Không cần check vì đã login rồi
         $order->date_order = now();
         $order->total = $total;
         $order->shipping_address = $request->shipping_address;
