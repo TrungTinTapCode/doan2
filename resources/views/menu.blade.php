@@ -6,6 +6,7 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <li><a class="dropdown-item" href="{{ route ('home')}}">Trang chủ người dùng</a></li>
+                <li><a class="dropdown-item" href="{{route('admin.orders.index') }}">Danh sách đơn hàng</a></li>
                 <li><a class="dropdown-item" href="{{ route('admin.products.index') }}">Danh sách sản phẩm</a></li>
                 <li><a class="dropdown-item" href="{{ route('admin.categories.index') }}">Danh sách danh mục</a></li>
                 <li><a class="dropdown-item" href="{{route('admin.products.create') }}">Thêm sản phẩm mới</a></li>

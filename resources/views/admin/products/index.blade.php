@@ -218,10 +218,10 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{ $product->name }}</h5>
                         <p class="card-text">
-                         Dung tích:   @if ($product->volume)
+                        Dung tích:   @if ($product->volume)
                                 {{ $product->volume }}.
                             @endif
-                         <br> Giá tiền:  {{ number_format($product->price) }} VNĐ
+                        <br> Giá tiền:  {{ number_format($product->price) }} VNĐ
                             <br>
                             Tồn kho: {{ $product->quantity }}
                         </p>
