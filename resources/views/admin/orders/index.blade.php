@@ -33,7 +33,6 @@
                 <td>{{ $order->phone_number }}</td>
                 <td>{{ number_format($order->total, 0, ',', '.') }} VNĐ</td>
                 <td>{{ ucfirst($order->status) }}</td>
-                <th>Chi tiết</th>
                 <td>
                     <form action="{{ route('admin.orders.updateStatus', $order->id) }}" method="POST">
                         @csrf
