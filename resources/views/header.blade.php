@@ -28,7 +28,7 @@
             <!-- Thanh tìm kiếm và các nút -->
             <div class="d-flex align-items-center">
                 <form class="d-flex position-relative" action="{{ route('search-nguoidung') }}" method="GET" style="max-width: 300px; margin-right: 20px;">
-                    <input class="form-control border px-3" type="search" placeholder="Nhập từ khoá..." aria-label="Tìm kiếm" name="keyword" style="border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                    <input class="form-control border px-3" type="search" placeholder="Tìm kiếm..." aria-label="Tìm kiếm" name="keyword" style="border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
                     <button type="submit" class="btn btn-light position-absolute top-50 end-0 translate-middle-y me-2" style="border: none; background-color: transparent;">
                         <i class="bi bi-search text-muted"></i>
                     </button>
