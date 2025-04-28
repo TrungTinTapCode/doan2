@@ -72,7 +72,18 @@ Route::post('/logout', function () {
     return redirect('/login');
 })->name('logout');
 
+
 // Menu demo
 Route::get('/menu', fn() => view('menu'))->name('menu');
+
 // tìm kiếm sản phẩm
 Route::get('/search', [ProductController::class, 'search'])->name('search-nguoidung');
+
+
+//thanh menu
+Route::get('/menu', function () {
+    return view('menu');
+})->name('menu');
+
+Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
+
