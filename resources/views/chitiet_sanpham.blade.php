@@ -123,6 +123,7 @@
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin-left: 345px;
+            margin-bottom: 20px;
         }
 
         .add-to-cart:hover {
