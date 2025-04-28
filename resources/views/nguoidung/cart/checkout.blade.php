@@ -75,7 +75,7 @@
     @if (count($cart) > 0)
     <div class="form-section">
         <h3>Thông Tin Giao Hàng</h3>
-        <form action="{{ route('nguoidung.order.place') }}" method="POST">
+        <form action="{{ route('order.checkout.place') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="address" class="form-label">Địa chỉ giao hàng <span class="required">*</span>:</label>

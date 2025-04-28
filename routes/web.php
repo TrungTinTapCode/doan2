@@ -15,17 +15,9 @@ use App\Http\Controllers\nguoidung\AuthCustomerController;
 use App\Http\Controllers\nguoidung\NguoiDungController;
 use App\Http\Controllers\nguoidung\CartController;
 use App\Http\Controllers\nguoidung\OrderController;
+use Illuminate\Support\Facades\Auth;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application.
-|
-*/
-
-/* ==================== Trang Chủ ==================== */
+// Trang chủ
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/sanpham', [SanPhamController::class, 'index'])->name('sanpham');
 Route::get('/sanpham/{id}', [SanPhamController::class, 'show'])->name('sanpham.show');
@@ -33,53 +25,29 @@ Route::get('/thongbao', [ThongBaoController::class, 'index'])->name('thongbao');
 Route::get('/lienhe', [LienHeController::class, 'index'])->name('lienhe');
 Route::get('/video', [VideoController::class, 'index'])->name('video');
 Route::get('/giohang', [GioHangController::class, 'index'])->name('giohang');
-
-Route::get('/dst',[DSTController::class, 'index'])->name('dst');
-Route::get('/sanpham/{id}', [SanPhamController::class, 'show'])->name('sanpham.show');
-
-
-
-//khachchuadangnhap
-Route::middleware('auth:customer')->group(function () {
-    Route::get('/hoso', [NguoiDungController::class, 'index'])->name('nguoidung.hoso');
-});
-
-
-//Nguoidung
-
 Route::get('/dst', [DSTController::class, 'index'])->name('dst');
 
-/* ==================== Người Dùng - Khách Hàng ==================== */
-
+// Người dùng - Khách hàng chưa đăng nhập
 Route::get('/nguoidung/login', [AuthCustomerController::class, 'showLoginForm'])->name('nguoidung.login');
 Route::post('/nguoidung/login', [AuthCustomerController::class, 'login']);
 Route::get('/nguoidung/register', [AuthCustomerController::class, 'showRegisterForm'])->name('nguoidung.register');
 Route::post('/nguoidung/register', [AuthCustomerController::class, 'register'])->name('nguoidung.register.post');
 Route::post('/nguoidung/logout', [AuthCustomerController::class, 'logout'])->name('nguoidung.logout');
+Route::get('/login', fn() => redirect()->route('nguoidung.login'))->name('login');
 Route::post('/login', [AuthCustomerController::class, 'login']);
 
-// Laravel yêu cầu route 'login' cho middleware 'auth'
-Route::get('/login', function () {
-    return redirect()->route('nguoidung.login');
-})->name('login');
-
-/* ==================== Hồ Sơ Khách Hàng - (Cần Đăng Nhập) ==================== */
+// Người dùng - Đăng nhập mới được dùng
 Route::middleware('auth:customer')->group(function () {
     Route::get('/hoso', [NguoiDungController::class, 'index'])->name('nguoidung.hoso');
-    // Hiển thị lịch sử đơn hàng
-Route::get('/lich-su-don-hang', [OrderController::class, 'history'])->name('nguoidung.orders.history');
+    Route::get('/lich-su-don-hang', [OrderController::class, 'history'])->name('nguoidung.orders.history');
 
-    // Order - Đặt hàng
     Route::prefix('order')->name('order.')->group(function () {
         Route::get('/checkout', [OrderController::class, 'checkoutForm'])->name('checkout.form');
-        Route::post('/checkout', [OrderController::class, 'checkout'])->name('checkout');
-        // Route đặt hàng từ form checkout
-Route::post('/checkout', [OrderController::class, 'placeOrder'])->name('nguoidung.order.place');
-
+        Route::post('/checkout', [OrderController::class, 'placeOrder'])->name('checkout.place');
     });
 });
 
-/* ==================== Giỏ Hàng ==================== */
+// Giỏ hàng
 Route::prefix('cart')->name('cart.')->group(function () {
     Route::get('/', [CartController::class, 'index'])->name('index');
     Route::post('/add', [CartController::class, 'add'])->name('add');
@@ -88,40 +56,21 @@ Route::prefix('cart')->name('cart.')->group(function () {
     Route::post('/clear', [CartController::class, 'clear'])->name('clear');
 });
 
-/* ==================== Trang Admin ==================== */
+// Admin
 Route::prefix('admin')->name('admin.')->group(function () {
-    // Quản lý sản phẩm
-    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-    Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-    Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-    Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-    Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
-    Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
-    Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+    Route::resource('products', ProductController::class);
+    Route::resource('categories', CategoryController::class);
 
-
-
-    // Quản lý đơn hàng
     Route::get('/orders', [OrdersController::class, 'index'])->name('orders.index');
     Route::get('/orders/{id}', [OrdersController::class, 'show'])->name('orders.show');
     Route::put('/orders/{id}/update-status', [OrdersController::class, 'updateStatus'])->name('orders.updateStatus');
-
-    // Quản lý danh mục sản phẩm
-    Route::resource('categories', CategoryController::class);
 });
 
-  //edit
-use Illuminate\Support\Facades\Auth;
-
+// Logout
 Route::post('/logout', function () {
     Auth::logout();
     return redirect('/login');
 })->name('logout');
 
-//thanh menu
-Route::get('/menu', function () {
-    return view('menu');
-})->name('menu');
-
-Route::get('/admin/products', [ProductController::class, 'index'])->name('admin.products.index');
-
+// Menu demo
+Route::get('/menu', fn() => view('menu'))->name('menu');

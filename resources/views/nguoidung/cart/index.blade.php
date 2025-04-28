@@ -59,7 +59,7 @@
             {{ number_format(collect($cart)->sum(function($item){ return $item['price'] * $item['quantity']; }), 0, ',', '.') }} VNĐ
         </h3>
 
-        <a href="{{ route('order.checkoutForm') }}"><button>Thanh toán</button></a>
+        <a href="{{ route('order.checkout.form') }}"><button>Thanh toán</button></a>
         <form action="{{ route('cart.clear') }}" method="POST" style="display:inline;">
             @csrf
             <button type="submit">Xóa toàn bộ giỏ hàng</button>
