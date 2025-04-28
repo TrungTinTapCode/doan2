@@ -1,56 +1,54 @@
-<!-- Header -->
-<nav class="navbar navbar-expand-lg ">
-        <div class="container-fluid">
-            <!-- Logo -->
-            <a class="navbar-brand " href="{{route('home')}}">
-                <img src="{{asset ('img/logo-01-01.png') }}" alt="Logo" height="100" width="100%">
-            </a>
+<nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <a class="navbar-brand" href="{{route('home')}}">
+            <img src="{{asset ('img/logo-01-01.png') }}" alt="Logo" height="100" width="100%">
+        </a>
 
-            <!-- Nút Toggle cho Mobile -->
-            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button> -->
+        <!-- Nội dung navbar -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('home')}}">TRANG CHỦ</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('sanpham') }}">SẢN PHẨM</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('thongbao')}}">THÔNG BÁO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('lienhe')}}">LIÊN HỆ CHÚNG TÔI</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('video')}}">VIDEO</a>
+                </li>
+            </ul>
 
-            <!-- Noi dung navbar -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('home')}}"></i> TRANG CHỦ</a>
-                    </li>
-                    <li class="nav-item">
-                    <a  class="nav-link" href="{{ route('sanpham') }}">SẢN PHẨM</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route ('thongbao')}}"></i> THÔNG BÁO</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="blog.php"></i> BLOG</a>
-                    </li> -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('lienhe')}}"></i> LIÊN HỆ CHÚNG TÔI</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('video')}}"></i> VIDEO</a>
-                    </li>
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="{{asset('dst')}}"></i><b> DST</b></a>
-                    </li> -->
-                </ul>
-
-                <!-- Tìm kiếm và Icon Người dùng, Giỏ hàng -->
-                <form class="d-flex mb-2 mb-lg-0 " action="search.php" method="GET">
-                    <input class="form-control me-4 border border-secondary rounded-4" type="search" placeholder="Tìm kiếm..." aria-label="Search" name="keyword">
+            <!-- Thanh tìm kiếm và các nút -->
+            <div class="d-flex align-items-center">
+                <form class="d-flex position-relative" action="{{ route('search-nguoidung') }}" method="GET" style="max-width: 300px; margin-right: 20px;">
+                    <input class="form-control border px-3" type="search" placeholder="Nhập từ khoá..." aria-label="Tìm kiếm" name="keyword" style="border-radius: 50px; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">
+                    <button type="submit" class="btn btn-light position-absolute top-50 end-0 translate-middle-y me-2" style="border: none; background-color: transparent;">
+                        <i class="bi bi-search text-muted"></i>
+                    </button>
                 </form>
+                <style>
+                    /* Tắt dấu "X" mặc định trên các trình duyệt Webkit */
+                    input[type="search"]::-webkit-search-cancel-button {
+                        -webkit-appearance: none;
+                        appearance: none;
+                    }
+                </style>
 
+                <a href="{{ route('nguoidung.hoso') }}" class="text-dark me-4 d-flex align-items-center" style="color: #333; font-size: 1.2rem;">
+                    <i class="bi bi-person-circle fs-4 nav-icon"></i>
+                </a>
 
-
-                <div class="d-flex align-items-center">
-                    <a href="{{ route ('nguoidung.hoso')}}" class="text-dark me-4"><i
-                            class="bi bi-person-circle fs-4 nav-icon"></i></a>
-                    <a href="{{asset('cart')}}" class="text-dark"><i class="bi bi-cart fs-4 nav-icon"></i></a>
-                </div>
+                <a href="{{asset('cart')}}" class="text-dark d-flex align-items-center" style="color: #333; font-size: 1.2rem;">
+                    <i class="bi bi-cart fs-4 nav-icon"></i>
+                </a>
             </div>
         </div>
-    </nav>
-
+    </div>
+</nav>

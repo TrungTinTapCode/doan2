@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\nguoidung;
 
 use App\Http\Controllers\Controller;
@@ -40,10 +41,10 @@ class AuthCustomerController extends Controller
         if (Auth::guard('customer')->attempt($credentials)) {
             // Đăng nhập thành công
             $user = Auth::guard('customer')->user();
-            
+
             // Lưu thông tin vào session nếu cần
             session(['email' => $user->email]);
-            
+
             return redirect()->route('home');
         }
 
@@ -54,7 +55,7 @@ class AuthCustomerController extends Controller
     /**
      * Hiển thị form đăng ký
      */
-    public function showRegisterForm() 
+    public function showRegisterForm()
     {
         return view('nguoidung.register');
     }
@@ -68,7 +69,7 @@ class AuthCustomerController extends Controller
         $validator = Validator::make($request->all(), [
             'username' => 'required|string|max:255|unique:customers',
             'name' => 'required|string|max:255',
-            'phone' => 'required|regex:/^[0-9]{10}$/',
+            'phone' => 'required|regex:/^[0-9]{10}$/|unique:customers',
             'email' => 'required|string|email|max:255|unique:customers',
             'password' => 'required|string|min:6',
             'password_confirmation' => 'required|same:password',
@@ -85,8 +86,8 @@ class AuthCustomerController extends Controller
             'password_confirmation.same' => 'Mật khẩu nhập lại không khớp!',
             'phone.required' => 'Vui lòng nhập số điện thoại.',
             'phone.regex' => 'Số điện thoại không hợp lệ. Vui lòng nhập 10 chữ số.',
+            'phone.unique' => 'Số điện thoại đã được sử dụng.',
         ]);
-
         if ($validator->fails()) {
             return redirect()->route('nguoidung.register')
                 ->withErrors($validator)
@@ -97,7 +98,7 @@ class AuthCustomerController extends Controller
         try {
             // Log dữ liệu đăng ký để debug
             Log::info('Dữ liệu đăng ký:', $request->only(['username', 'name', 'email', 'phone']));
-            
+
             $customer = new Customer();
             $customer->username = $request->username;
             $customer->name = $request->name;
@@ -109,11 +110,10 @@ class AuthCustomerController extends Controller
             // Chuyển hướng đến trang đăng nhập với thông báo thành công
             return redirect()->route('nguoidung.login')
                 ->with('success', 'Đăng ký tài khoản thành công!');
-
         } catch (\Exception $e) {
             // Ghi chi tiết lỗi vào log
             Log::error('Lỗi đăng ký: ' . $e->getMessage() . ' at ' . $e->getFile() . ':' . $e->getLine());
-            
+
             return redirect()->route('nguoidung.register')
                 ->withInput()
                 ->withErrors(['database' => 'Lỗi: ' . $e->getMessage()]);
@@ -128,7 +128,7 @@ class AuthCustomerController extends Controller
         Auth::guard('customer')->logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect()->route('nguoidung.login');
     }
 
@@ -137,8 +137,7 @@ class AuthCustomerController extends Controller
         if (!Auth::guard('customer')->check()) {
             return redirect()->route('nguoidung.login');
         }
-        
+
         return view('nguoidung.hoso');
     }
 }
-

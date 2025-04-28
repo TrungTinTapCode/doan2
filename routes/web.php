@@ -74,3 +74,5 @@ Route::post('/logout', function () {
 
 // Menu demo
 Route::get('/menu', fn() => view('menu'))->name('menu');
+// tìm kiếm sản phẩm
+Route::get('/search', [ProductController::class, 'search'])->name('search-nguoidung');

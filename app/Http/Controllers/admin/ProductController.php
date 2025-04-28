@@ -16,11 +16,11 @@ class ProductController extends Controller
 
         if ($request->filled('keyword')) {
             $keyword = $request->keyword;
-            $query->where(function($q) use ($keyword) {
+            $query->where(function ($q) use ($keyword) {
                 $q->where('name', 'LIKE', '%' . $keyword . '%')
-                ->orWhere('volume', 'LIKE', '%' . $keyword . '%')
-                ->orWhere('price', 'LIKE', '%' . $keyword . '%')
-                ->orWhere('quantity', 'LIKE', '%' . $keyword . '%');
+                    ->orWhere('volume', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('price', 'LIKE', '%' . $keyword . '%')
+                    ->orWhere('quantity', 'LIKE', '%' . $keyword . '%');
             });
         }
 
@@ -125,5 +125,24 @@ class ProductController extends Controller
         $product->save();
 
         return response()->json(['success' => true]);
+    }
+
+    //tìm kiếm sản phẩm người dùng
+    // Trong controller của bạn
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+        
+        // Thay đổi tên cột tương ứng với database của bạn
+        $products = Product::where('name', 'LIKE', "%{$keyword}%")
+                   ->orWhere('description', 'LIKE', "%{$keyword}%")
+                   ->paginate(12);
+        
+        // Sử dụng template có sẵn thay vì tạo mới
+        // Thử một tên view khác nếu bạn có sẵn (như 'sanpham')
+        return view('sanpham', [
+            'products' => $products,
+            'keyword' => $keyword
+        ]);
     }
 }
