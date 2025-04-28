@@ -23,9 +23,9 @@
         font-family: Arial, sans-serif;
         background-color: #f9f9f9;
     }
-    .container {
+    .container1 {
         width: 80%;
-        margin: 30px auto;
+        margin: 80px auto;
         background-color: white;
         padding: 20px;
         border-radius: 10px;
@@ -34,6 +34,7 @@
     h1 {
         text-align: center;
         margin-bottom: 30px;
+        font-size: 40px;
     }
     .product {
         display: flex;
@@ -57,10 +58,15 @@
     .required {
         color: red;
     }
+    .xacnhanhang{
+        margin-left: 200px;
+        margin-right: 200px;
+    }
 </style>
 
-<div class="container">
-    <h1>Đơn Hàng của bạn</h1>
+<div class="xacnhanhang">
+<div class="container1">
+    <h1><b>THANH TOÁN</b></h1>
 
     <!-- Danh sách sản phẩm trong giỏ -->
     <div class="product-list">
@@ -79,7 +85,7 @@
         @if(count($cart) > 0)
     <div class="mt-4 text-end">
         <h4>
-            Tổng cộng: 
+            Tổng cộng:
             <span class="text-danger">
                 {{ number_format(collect($cart)->sum(function($item) {
                     return $item['price'] * $item['quantity'];
@@ -119,6 +125,7 @@
     @endif
 </div>
 
+</div>
 @include('footer')
 
 </body>

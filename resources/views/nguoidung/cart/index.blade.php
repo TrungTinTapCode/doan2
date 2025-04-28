@@ -11,13 +11,129 @@
     <link rel="stylesheet" href="{{ asset('./Css/bootstrap-icons-1.11.3/font/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    background-color: white;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+table th, table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #dee2e6;
+}
+
+table th {
+    background-color: #0d6efd;
+    color: white;
+    font-size: 18px;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
+
+input[type="number"] {
+    width: 70px;
+    padding: 6px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    text-align: center;
+}
+
+button {
+    background-color: #0d6efd;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0b5ed7;
+    transform: translateY(-2px);
+}
+
+button:active {
+    background-color: #0a58ca;
+    transform: translateY(0);
+}
+
+form {
+    display: inline-block;
+}
+
+h3 {
+    margin-top: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+div[style*="color:green"], div[style*="color:red"] {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+div[style*="color:green"] {
+    background-color: #d4edda;
+    color: #155724 !important;
+}
+
+div[style*="color:red"] {
+    background-color: #f8d7da;
+    color: #721c24 !important;
+}
+
+.banggiohang{
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.endgiohang{
+    margin-left: 980px;
+}
+    </style>
 </head>
 <body>
     @include('header')
-<h1>Giỏ hàng của bạn</h1>
-<a href="{{ route('nguoidung.orders.history') }}">
-    Xem lịch sử đơn hàng
-</a>
+    <div class="container-cart">
+        <h1>Giỏ hàng của bạn</h1>
+        <a href="{{ route('nguoidung.orders.history') }}">
+            Xem lịch sử đơn hàng
+        </a>
 @if ($customer)
     <p>Giỏ hàng của: {{ $customer->name }} ({{ $customer->email }})</p>
 @endif
@@ -31,6 +147,7 @@
     @if (empty($cart) || count($cart) == 0)
         <p>Giỏ hàng đang trống.</p>
     @else
+        <div class="banggiohang">
         <table border="1" cellpadding="10">
             <tr>
                 <th>Sản phẩm</th>
@@ -65,7 +182,11 @@
 
         </table>
 
-        <h3>Tổng cộng: 
+        </div>
+
+<br>
+       <div class="endgiohang">
+       <h3>Tổng cộng:
             {{ number_format(collect($cart)->sum(function($item){ return $item['price'] * $item['quantity']; }), 0, ',', '.') }} VNĐ
         </h3>
 
@@ -74,6 +195,9 @@
             @csrf
             <button type="submit">Xóa toàn bộ giỏ hàng</button>
         </form>
+       </div>
+<br><br>
+
     @endif
     @include('footer')
 </body>
