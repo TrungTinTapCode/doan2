@@ -80,7 +80,7 @@
 <section class="py-5 bg-light">
   <div class="container">
     <div class="td1">
-      <span>SẢN PHẨM NỔI BẬT</span>
+      <span>TẤT CẢ SẢN PHẨM</span>
     </div>
 
     <div class="row g-4">

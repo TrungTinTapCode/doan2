@@ -42,9 +42,6 @@
                 <form class="d-flex mb-2 mb-lg-0 " action="search.php" method="GET">
                     <input class="form-control me-4 border border-secondary rounded-4" type="search" placeholder="Tìm kiếm..." aria-label="Search" name="keyword">
                 </form>
-
-
-
                 <div class="d-flex align-items-center">
                     <a href="{{ route ('nguoidung.hoso')}}" class="text-dark me-4"><i
                             class="bi bi-person-circle fs-4 nav-icon"></i></a>
@@ -53,4 +50,3 @@
             </div>
         </div>
     </nav>
-
