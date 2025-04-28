@@ -77,13 +77,14 @@ class OrderController extends Controller
     // Thêm hàm xem lịch sử đơn hàng
     public function history()
     {
+
         $customer = Auth::guard('customer')->user();
 
         $orders = Order::where('customer_id', $customer->id)
                         ->orderBy('created_at', 'desc')
                         ->with('orderDetails.product')
                         ->get();
-
+                        
         return view('nguoidung.orders.history', compact('orders'));
     }
 }

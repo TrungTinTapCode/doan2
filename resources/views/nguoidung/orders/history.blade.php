@@ -17,7 +17,6 @@
 <body>
 @include('header')
 <h2 class="text-2xl font-bold mb-4">Lịch Sử Đơn Hàng</h2>
-@section('content')
     
     @if($orders->count())
         @foreach($orders as $order)
@@ -50,7 +49,6 @@
     @else
         <p>Chưa có đơn hàng nào.</p>
     @endif
-@endsection
 @include('footer')
 </body>
 </html>

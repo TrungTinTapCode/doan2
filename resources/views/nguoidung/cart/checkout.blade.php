@@ -76,6 +76,20 @@
         @empty
             <p>Giỏ hàng của bạn đang trống.</p>
         @endforelse
+        @if(count($cart) > 0)
+    <div class="mt-4 text-end">
+        <h4>
+            Tổng cộng: 
+            <span class="text-danger">
+                {{ number_format(collect($cart)->sum(function($item) {
+                    return $item['price'] * $item['quantity'];
+                }), 0, ',', '.') }}
+                VNĐ
+            </span>
+        </h4>
+    </div>
+@endif
+
     </div>
 
     <!-- Form thông tin giao hàng -->
