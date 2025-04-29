@@ -203,46 +203,48 @@
             <button class="btn btn-primary" type="submit">Tìm kiếm</button>
         </div>
     </form>
+
 <div class="row">
-    @foreach ($categories as $category)
-        <h2 class="category-title">{{ $category->name }}</h2>
-        <div class="row">
-            @forelse ($category->products as $product)
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 shadow-sm">
-                        @if ($product->image)
-                            <img src="{{ asset('uploads/' . $product->image) }}" class="card-img-top" alt="Ảnh sản phẩm">
-                        @else
-                            <div class="card-img-top d-flex align-items-center justify-content-center" style="height: 150px; background-color: #f8f9fa;">Không có ảnh</div>
-                        @endif
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ $product->name }}</h5>
-                            <p class="card-text">
-                                Dung tích: {{ $product->volume ?? 'N/A' }}<br>
-                                Giá: {{ number_format($product->price) }} VNĐ<br>
-                                Tồn kho: {{ $product->quantity }}
-                            </p>
-                            <div class="mt-auto">
-                                <div class="d-flex gap-2 mb-2">
-                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-sm btn-secondary w-50">Chỉnh sửa</a>
-                                    <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-sm btn-info w-50 text-white">Xem chi tiết</a>
-                                </div>
-                                <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Bạn có chắc muốn xoá không?')">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-sm btn-danger w-100">XÓA SẢN PHẨM</button>
-                                </form>
+        @foreach ($products as $product)
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    @if ($product->image)
+                        <img src="{{ asset('uploads/' . $product->image) }}" class="card-img-top" alt="Ảnh sản phẩm">
+                    @else
+                        <div class="card-img-top d-flex align-items-center justify-content-center" style="height: 150px; background-color: #f8f9fa;">
+                            Không có ảnh
+                        </div>
+                    @endif
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ $product->name }}</h5>
+                        <p class="card-text">
+                        Dung tích:   @if ($product->volume)
+                                {{ $product->volume }}.
+                            @endif
+                        <br> Giá tiền:  {{ number_format($product->price) }} VNĐ
+                            <br>
+                            Tồn kho: {{ $product->quantity }}
+                        </p>
+                        <div class="mt-auto">
+                            <div class="d-flex gap-2 mb-2">
+                                <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-sm btn-secondary w-50">Chỉnh sửa</a>
+                                <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-sm btn-info w-50 text-white">Xem chi tiết</a>
                             </div>
+                            <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Bạn có chắc muốn xoá không?')">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger w-100">XÓA SẢN PHẨM</button>
+                            </form>
                         </div>
                     </div>
                 </div>
-            @empty
-                <div class="col-12"><p>Không có sản phẩm trong danh mục này.</p></div>
-            @endforelse
-        </div>
-    @endforeach
+            </div>
+        @endforeach
+    </div>
 </div>
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
