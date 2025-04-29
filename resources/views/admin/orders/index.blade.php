@@ -43,9 +43,9 @@ tbody td {
     vertical-align: middle;
 }
 
-tr:hover {
-    /* background-color: #f1f3f5; */
-}
+/* tr:hover {
+    background-color: #f1f3f5;
+} */
 
 select {
     padding: 6px 10px;
