@@ -23,6 +23,8 @@ class ProductController extends Controller
                     ->orWhere('quantity', 'LIKE', '%' . $keyword . '%');
             });
         }
+        $categories = Category::with('products')->get();
+        return view('admin.products.index', compact('categories'));
 
         $products = $query->get();
 
