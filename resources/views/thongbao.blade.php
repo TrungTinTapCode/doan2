@@ -102,7 +102,7 @@
       <div class="col-md-12">
         <div class="thong-bao-card">
           <div class="thong-bao-img">
-            <div class="ngay-thang">11<br>Th3</div>
+            <div class="ngay-thang">30<br>Th4</div>
             <img src="{{asset('img/THONGBAO.png')}}" alt="Thông báo">
           </div>
           <div class="thong-bao-body">
@@ -144,7 +144,7 @@
       <div class="col-md-12">
         <div class="thong-bao-card">
           <div class="thong-bao-img">
-            <div class="ngay-thang">11<br>Th3</div>
+            <div class="ngay-thang">5<br>Th3</div>
             <img src="{{asset('img/THONGBAO.png')}}" alt="Thông báo">
           </div>
           <div class="thong-bao-body">
