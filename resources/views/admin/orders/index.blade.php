@@ -5,98 +5,98 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f6f9;
-    padding: 30px;
-    color: #333;
-}
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            padding: 30px;
+            color: #333;
+        }
 
-h1 {
-    text-align: center;
-    font-size: 32px;
-    margin-bottom: 30px;
-    font-weight: bold;
-}
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
-    overflow: hidden;
-}
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
 
-thead {
-    background-color: #0d6efd;
-    color: white;
-}
+        thead {
+            background-color: #0d6efd;
+            color: white;
+        }
 
-thead th {
-    padding: 14px 12px;
-    text-align: left;
-    font-weight: 600;
-}
+        thead th {
+            padding: 14px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
 
-tbody td {
-    padding: 14px 12px;
-    border-top: 1px solid #e9ecef;
-    vertical-align: middle;
-}
+        tbody td {
+            padding: 14px 12px;
+            border-top: 1px solid #e9ecef;
+            vertical-align: middle;
+        }
 
-/* tr:hover {
-    background-color: #f1f3f5;
-} */
+        /* tr:hover {
+            background-color: #f1f3f5;
+        } */
 
-select {
-    padding: 6px 10px;
-    border: 1px solid #ced4da;
-    border-radius: 6px;
-    background-color: #fff;
-    font-size: 14px;
-    margin-right: 6px;
-}
+        select {
+            padding: 6px 10px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            background-color: #fff;
+            font-size: 14px;
+            margin-right: 6px;
+        }
 
-button {
-    background-color: #0d6efd;
-    color: #fff;
-    border: none;
-    padding: 8px 14px;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    font-size: 14px;
-}
+        button {
+            background-color: #0d6efd;
+            color: #fff;
+            border: none;
+            padding: 8px 14px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            font-size: 14px;
+        }
 
-button:hover {
-    background-color: #0b5ed7;
-    transform: translateY(-2px);
-}
+        button:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-2px);
+        }
 
-button:active {
-    transform: translateY(0);
-    background-color: #0a58ca;
-}
+        button:active {
+            transform: translateY(0);
+            background-color: #0a58ca;
+        }
 
-a button {
-    background-color: #20c997;
-}
+        a button {
+            background-color: #20c997;
+        }
 
-a button:hover {
-    background-color: #17b88f;
-}
+        a button:hover {
+            background-color: #17b88f;
+        }
 
-div[style*="color:green"] {
-    background-color: #d4edda;
-    color: #155724 !important;
-    padding: 12px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: 500;
-    box-shadow: 0 2px 10px rgba(0, 128, 0, 0.05);
-}
+        div[style*="color:green"] {
+            background-color: #d4edda;
+            color: #155724 !important;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 2px 10px rgba(0, 128, 0, 0.05);
+        }
 
     </style>
 </head>
@@ -111,10 +111,10 @@ div[style*="color:green"] {
     <table border="1" cellpadding="10">
         <thead>
             <tr>
-                <th>ID</th>
+                <th>Mã đơn</th>
                 <th>Khách hàng</th>
                 <th>Ngày đặt</th>
-                <th>Địa chỉ giao</th>
+                <th>Địa chỉ giao hàng</th>
                 <th>Số điện thoại</th>
                 <th>Tổng tiền</th>
                 <th>Trạng thái</th>
