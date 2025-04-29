@@ -119,6 +119,7 @@
                 <th>Tổng tiền</th>
                 <th>Trạng thái</th>
                 <th>Cập nhật trạng thái</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>

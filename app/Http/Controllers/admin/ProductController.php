@@ -23,7 +23,7 @@ class ProductController extends Controller
                     ->orWhere('quantity', 'LIKE', '%' . $keyword . '%');
             });
         }
-
+        
         $products = $query->get();
 
         return view('admin.products.index', compact('products'));
