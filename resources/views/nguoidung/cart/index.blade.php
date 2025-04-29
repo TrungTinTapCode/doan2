@@ -154,7 +154,7 @@ div[style*="color:red"] {
                 <th>Giá</th>
                 <th>Số lượng</th>
                 <th>Thành tiền</th>
-                <th>Hành động</th>
+                <th></th>
             </tr>
 
             @foreach ($cart as $productId => $item)
