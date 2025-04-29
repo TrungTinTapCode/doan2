@@ -106,9 +106,9 @@
             <img src="{{asset('img/THONGBAO.png')}}" alt="Thông báo">
           </div>
           <div class="thong-bao-body">
-            <h5 class="fw-bold">THÔNG BÁO CHƯƠNG TRÌNH MARKETING ĐỂ QUẢNG BÁ SẢN PHẨM</h5>
-            <p>THÔNG BÁO (V/v chương trình Marketing để quảng bá sản phẩm) Kính gửi: Quý khách [...]</p>
-            <a href="#" class="btn-xem-them">Xem thêm</a>
+            <h5 class="fw-bold">THÔNG BÁO CHƯƠNG TRÌNH SALE 30/4 - 1/5 </h5>
+            <p>Chào mừng đại lễ kỉ niệm 50 năm ngày giải phóng miền Nam thống nhất Đất nước - Drceutics sale 30% cho tổng hóa đơn </p>
+            <!-- <a href="#" class="btn-xem-them">Xem thêm</a> -->
           </div>
         </div>
       </div>
@@ -128,9 +128,9 @@
             <img src="{{asset('img/THONGBAO.png')}}" alt="Thông báo">
           </div>
           <div class="thong-bao-body">
-            <h5 class="fw-bold">THÔNG BÁO CHƯƠNG TRÌNH MARKETING ĐỂ QUẢNG BÁ SẢN PHẨM</h5>
-            <p>THÔNG BÁO (V/v chương trình Marketing để quảng bá sản phẩm) Kính gửi: Quý khách [...]</p>
-            <a href="#" class="btn-xem-them">Xem thêm</a>
+            <h5 class="fw-bold">THÔNG BÁO CHƯƠNG TRÌNH RA MẮT SẢN PHẨM MỚI</h5>
+            <p>GENTLE OLIVE SOOTHING MICELLAR WATER - Nước tẩy trang</p>
+            <!-- <a href="#" class="btn-xem-them">Xem thêm</a> -->
           </div>
         </div>
       </div>
@@ -148,9 +148,9 @@
             <img src="{{asset('img/THONGBAO.png')}}" alt="Thông báo">
           </div>
           <div class="thong-bao-body">
-            <h5 class="fw-bold">THÔNG BÁO CHƯƠNG TRÌNH MARKETING ĐỂ QUẢNG BÁ SẢN PHẨM</h5>
-            <p>THÔNG BÁO (V/v chương trình Marketing để quảng bá sản phẩm) Kính gửi: Quý khách [...]</p>
-            <a href="#" class="btn-xem-them">Xem thêm</a>
+            <h5 class="fw-bold">THÔNG BÁO CHƯƠNG TRÌNH ĐỔI BAO BÌ</h5>
+            <p>THÔNG BÁO: Một số sản phẩm của DrCeutics sẽ thay đổi bao bì hoàn toàn mới, bắt mắt hơn và phù hợp hơn với giá trị sản phẩm </p>
+            <!-- <a href="#" class="btn-xem-them">Xem thêm</a> -->
           </div>
         </div>
       </div>
