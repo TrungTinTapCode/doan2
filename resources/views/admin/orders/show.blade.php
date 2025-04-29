@@ -2,12 +2,15 @@
 <html>
 <head>
     <title>Chi tiết đơn hàng #{{ $order->id }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
+            background-color:rgb(241, 241, 241);
             padding: 40px;
             color: #333;
+            margin-left: 150px;
+            margin-right: 150px;
         }
 
         h1 {
@@ -116,6 +119,7 @@
     </style>
 </head>
 <body>
+@include('menu')
     <h1><b>CHI TIẾT ĐƠN HÀNG #{{ $order->id }}</b></h1>
     <a href="{{ route('admin.orders.index') }}" class="btn-back">← Quay lại danh sách</a>
     <p><strong>Khách hàng:</strong> {{ $order->customer->name ?? 'Không rõ' }}</p>
@@ -149,6 +153,6 @@
 
     <br>
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
