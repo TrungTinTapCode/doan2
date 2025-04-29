@@ -185,8 +185,8 @@ div[style*="color:red"] {
         </div>
 
 <br>
-       <div class="endgiohang">
-       <h3>Tổng cộng:
+    <div class="endgiohang">
+    <h3>Tổng cộng:
             {{ number_format(collect($cart)->sum(function($item){ return $item['price'] * $item['quantity']; }), 0, ',', '.') }} VNĐ
         </h3>
 
