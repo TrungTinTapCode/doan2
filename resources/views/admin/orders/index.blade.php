@@ -163,14 +163,18 @@
                                 <td>{{ $order->shipping_address }}</td>
                                 <td>{{ $order->phone_number }}</td>
                                 <td>{{ number_format($order->total, 0, ',', '.') }} VNĐ</td>
-                                <td class="status-{{ $order->status }}">{{ ucfirst($order->status) }}</td>
+                                <td @if($order->status == 'pending')
+                    <span class="text-yellow-500">Chờ duyệt</span>
+                @else
+                    <span class="text-green-500">Đã duyệt</span>
+                @endif</td>
                                 <td>
                                     <form action="{{ route('admin.orders.updateStatus', $order->id) }}" method="POST">
                                         @csrf
                                         @method('PUT')
                                         <select name="status">
-                                            <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Chờ xác nhận</option>
-                                            <option value="approved" {{ $order->status == 'approved' ? 'selected' : '' }}>Đã xác nhận</option>
+                                            <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Chờ duyệt</option>
+                                            <option value="approved" {{ $order->status == 'approved' ? 'selected' : '' }}>Đã duyệt</option>
                                         </select>
                                         <button type="submit" class="btn btn-sm btn-primary">Cập nhật</button>
                                     </form>
