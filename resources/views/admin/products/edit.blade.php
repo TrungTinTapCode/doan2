@@ -133,7 +133,7 @@
 <body>
 @include('menu')
 <div class="container">
-    <h1>Chỉnh sửa sản phẩm</h1>
+    <h1><b>Chỉnh sửa sản phẩm</b></h1>
 
     @if ($errors->any())
         <div class="error-messages">
