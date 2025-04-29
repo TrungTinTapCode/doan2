@@ -6,7 +6,7 @@
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f9;
+            background-color:rgb(241, 241, 241);
             padding: 30px;
             color: #333;
         }
