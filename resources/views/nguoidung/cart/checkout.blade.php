@@ -30,6 +30,7 @@
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        margin-top: 0px;
     }
     h1 {
         text-align: center;
@@ -62,7 +63,18 @@
         margin-left: 200px;
         margin-right: 200px;
     }
-</style>
+    .btn-custom-gray {
+        background-color:rgb(86, 86, 86); /* Màu xám bạn muốn */
+        /* border-color: #6c757d; */
+        color: white; /* Màu chữ (thường là trắng hoặc đen tùy thuộc vào màu nền) */
+    }
+
+    .btn-custom-gray:hover {
+        background-color:rgb(156, 156, 156); /* Màu xám đậm hơn khi di chuột qua (tùy chọn) */
+        /* border-color: #5a6268; */
+        color: black;
+    }
+    </style>
 
 <div class="xacnhanhang">
 <div class="container1">
@@ -101,7 +113,7 @@
     <!-- Form thông tin giao hàng -->
     @if (count($cart) > 0)
     <div class="form-section">
-        <h3>Thông Tin Giao Hàng</h3>
+        <h4><b>THÔNG TIN GIAO HÀNG</b></h4>
         <form action="{{ route('order.checkout.place') }}" method="POST">
             @csrf
             <div class="mb-3">
@@ -119,7 +131,7 @@
                 <textarea id="notes" name="notes" class="form-control" rows="3"></textarea>
             </div>
 
-            <button type="submit" class="btn btn-danger w-100">Xác Nhận Đặt Hàng</button>
+            <button type="submit" class="btn btn-custom-gray w-100">Xác Nhận Đặt Hàng</button>
         </form>
     </div>
     @endif

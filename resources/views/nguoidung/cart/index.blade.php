@@ -11,125 +11,161 @@
     <link rel="stylesheet" href="{{ asset('./Css/bootstrap-icons-1.11.3/font/bootstrap-icons.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{ asset('css/index.css') }}">
-    <style>
-        body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f9fa;
+<style>
+    body {
+        background-color:rgb(243, 243, 243);
+    }
+    .container-cart {
     padding: 20px;
-}
-
-h1 {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #333;
-}
-
-a {
-    text-decoration: none;
-    color: #0d6efd;
-    font-weight: 600;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-table {
-    width: 100%;
-    background-color: white;
-    border-collapse: collapse;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 960px;
+    background-color: #fff;
     border-radius: 8px;
-    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-table th, table td {
-    padding: 15px;
+.container-cart h1 {
+    color: #333;
+    margin-bottom: 20px;
     text-align: center;
+}
+
+.container-cart a {
+    display: block;
+    color: #007bff;
+    margin-bottom: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    text-align: right;
+}
+
+.container-cart a:hover {
+    color: #0056b3;
+}
+
+.container-cart .success {
+    color: green;
+    margin-bottom: 10px;
+}
+
+.container-cart .error {
+    color: red;
+    margin-bottom: 10px;
+}
+
+.container-cart p {
+    color: #555;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.banggiohang {
+    overflow-x: auto; /* Để bảng có thể cuộn ngang trên màn hình nhỏ */
+    margin-bottom: 20px;
+}
+
+.banggiohang table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #dee2e6;
+}
+
+.banggiohang th, .banggiohang td {
+    padding: 12px;
+    text-align: left;
     border-bottom: 1px solid #dee2e6;
 }
 
-table th {
-    background-color: #0d6efd;
-    color: white;
-    font-size: 18px;
+.banggiohang th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #333;
 }
 
-table tr:last-child td {
+.banggiohang tr:last-child td {
     border-bottom: none;
 }
 
-input[type="number"] {
-    width: 70px;
+.banggiohang img {
+    max-width: 80px;
+    height: auto;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 4px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.banggiohang input[type="number"] {
+    width: 60px;
     padding: 6px;
     border: 1px solid #ced4da;
     border-radius: 4px;
     text-align: center;
 }
 
-button {
-    background-color: #0d6efd;
+.banggiohang button {
+    padding: 8px 12px;
+    background-color:rgb(77, 77, 77);
     color: white;
-    padding: 8px 16px;
     border: none;
-    font-weight: 600;
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease;
+    font-size: 0.9rem;
 }
 
-button:hover {
-    background-color: #0b5ed7;
-    transform: translateY(-2px);
+.banggiohang button:hover {
+    background-color:rgb(199, 199, 199);
+    color: black;
 }
 
-button:active {
-    background-color: #0a58ca;
-    transform: translateY(0);
+.endgiohang {
+    text-align: right;
+    padding: 15px 0;
+    border-top: 1px solid #dee2e6;
 }
 
-form {
-    display: inline-block;
-}
-
-h3 {
-    margin-top: 20px;
-    font-size: 24px;
+.endgiohang h3 {
     color: #333;
+    margin-bottom: 10px;
 }
 
-div[style*="color:green"], div[style*="color:red"] {
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 6px;
-    font-weight: 600;
+.endgiohang button {
+    padding: 10px 15px;
+    background-color:rgb(0, 103, 24);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 17px;
+    margin-left: 10px;
 }
 
-div[style*="color:green"] {
-    background-color: #d4edda;
-    color: #155724 !important;
+.endgiohang button:hover {
+    background-color:rgb(0, 170, 40);
+
 }
 
-div[style*="color:red"] {
-    background-color: #f8d7da;
-    color: #721c24 !important;
+.endgiohang form {
+    display: inline;
+    margin-left: 10px;
 }
 
-.banggiohang{
-    margin-left: 200px;
-    margin-right: 200px;
+.endgiohang form button {
+    background-color:rgb(149, 0, 15);
 }
 
-.endgiohang{
-    margin-left: 980px;
+.endgiohang form button:hover {
+    background-color: #c82333;
 }
-    </style>
+
+</style>
 </head>
 <body>
     @include('header')
-    <div class="container-cart">
+  <div class="giohang">
+  <div class="container-cart">
         <h1>Giỏ hàng của bạn</h1>
         <a href="{{ route('nguoidung.orders.history') }}">
             Xem lịch sử đơn hàng
@@ -186,10 +222,13 @@ div[style*="color:red"] {
 
 <br>
     <div class="endgiohang">
-    <h3>Tổng cộng:
-            {{ number_format(collect($cart)->sum(function($item){ return $item['price'] * $item['quantity']; }), 0, ',', '.') }} VNĐ
-        </h3>
-
+    <h3>
+        <b>
+        Tổng cộng:
+        {{ number_format(collect($cart)->sum(function($item){ return $item['price'] * $item['quantity']; }), 0, ',', '.') }} VNĐ
+        </b>
+    </h3>
+<br>
         <a href="{{ route('order.checkout.form') }}"><button>Thanh toán</button></a>
         <form action="{{ route('cart.clear') }}" method="POST" style="display:inline;">
             @csrf
@@ -199,6 +238,8 @@ div[style*="color:red"] {
 <br><br>
 
     @endif
+  </div>
+
     @include('footer')
 </body>
 </html>

@@ -101,7 +101,7 @@
             width: 100%;
             padding: 14px;
             border: none;
-            background-color: #007bff;
+            background-color:rgb(91, 91, 91);
             color: white;
             font-size: 16px;
             font-weight: bold;
@@ -111,7 +111,8 @@
         }
 
         button[type="submit"]:hover {
-            background-color: #0056b3;
+            background-color:rgb(195, 195, 195);
+            color: black;
         }
 
         .error-messages {
