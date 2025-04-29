@@ -194,9 +194,16 @@
 <body>
 @include('menu')
 
-<div class="container py-4">
-    <h1 class="text-center mb-4">Sản phẩm theo danh mục</h1>
+<div class="container">
+    <h1>Danh sách sản phẩm </h1>
 
+    <form action="{{ route('admin.products.index') }}" method="GET" class="mb-4" id="search-form">
+        <div class="input-group">
+            <input type="text" name="keyword" class="form-control" placeholder="Tìm kiếm sản phẩm..." value="{{ request('keyword') }}">
+            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+        </div>
+    </form>
+<div class="row">
     @foreach ($categories as $category)
         <h2 class="category-title">{{ $category->name }}</h2>
         <div class="row">
