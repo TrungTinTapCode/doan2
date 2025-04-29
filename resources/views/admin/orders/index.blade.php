@@ -44,7 +44,7 @@ tbody td {
 }
 
 tr:hover {
-    background-color: #f1f3f5;
+    /* background-color: #f1f3f5; */
 }
 
 select {
