@@ -127,8 +127,22 @@
     <p><strong>Địa chỉ giao hàng:</strong> {{ $order->shipping_address }}</p>
     <p><strong>Số điện thoại:</strong> {{ $order->phone_number }}</p>
     <p><strong>Tổng tiền:</strong> {{ number_format($order->total, 0, ',', '.') }} VNĐ</p>
-    <p><strong>Trạng thái:</strong> {{ ucfirst($order->status) }}</p>
-
+    <p><strong>Trạng thái:</strong> @if($order->status == 'pending')
+                    <span class="text-yellow-500">Chờ duyệt</span>
+                @else
+                    <span class="text-green-500">Đã duyệt</span>
+                @endif</p>
+                <td>
+                                    <form action="{{ route('admin.orders.updateStatus', $order->id) }}" method="POST class="btn-back">
+                                        @csrf
+                                        @method('PUT')
+                                        <select name="status">
+                                            <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Chờ duyệt</option>
+                                            <option value="approved" {{ $order->status == 'approved' ? 'selected' : '' }}>Đã duyệt</option>
+                                        </select>
+                                        <button type="submit" class="btn btn-sm btn-primary">Cập nhật</button>
+                                    </form>
+                                </td>
     <h3>Danh sách sản phẩm:</h3>
     <table border="1" cellpadding="10">
         <thead>
