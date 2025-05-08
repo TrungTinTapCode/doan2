@@ -132,7 +132,7 @@
                 @else
                     <span class="text-green-500">Đã duyệt</span>
                 @endif</p>
-                <td>
+                <!-- <td>
                                     <form action="{{ route('admin.orders.updateStatus', $order->id) }}" method="POST ">
                                         @csrf
                                         @method('PUT')
@@ -142,7 +142,7 @@
                                         </select>
                                         <button type="submit" class="btn-back">Cập nhật</button>
                                     </form>
-                                </td>
+                                </td> -->
     <h3>Danh sách sản phẩm:</h3>
     <table border="1" cellpadding="10">
         <thead>
