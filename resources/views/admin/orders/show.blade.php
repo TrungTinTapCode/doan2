@@ -133,14 +133,14 @@
                     <span class="text-green-500">Đã duyệt</span>
                 @endif</p>
                 <td>
-                                    <form action="{{ route('admin.orders.updateStatus', $order->id) }}" method="POST class="btn-back">
+                                    <form action="{{ route('admin.orders.updateStatus', $order->id) }}" method="POST ">
                                         @csrf
                                         @method('PUT')
                                         <select name="status">
                                             <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Chờ duyệt</option>
                                             <option value="approved" {{ $order->status == 'approved' ? 'selected' : '' }}>Đã duyệt</option>
                                         </select>
-                                        <button type="submit" class="btn btn-sm btn-primary">Cập nhật</button>
+                                        <button type="submit" class="btn-back">Cập nhật</button>
                                     </form>
                                 </td>
     <h3>Danh sách sản phẩm:</h3>
