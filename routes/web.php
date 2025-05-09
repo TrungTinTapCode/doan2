@@ -16,6 +16,8 @@ use App\Http\Controllers\nguoidung\NguoiDungController;
 use App\Http\Controllers\nguoidung\CartController;
 use App\Http\Controllers\nguoidung\OrderController;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\admin\AuthAdminController;
+
 
 // Trang chủ
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -46,6 +48,16 @@ Route::middleware('auth:customer')->group(function () {
         Route::post('/checkout', [OrderController::class, 'placeOrder'])->name('checkout.place');
     });
 });
+
+// Admin đăng nhập
+Route::get('/admin/login', [AuthAdminController::class, 'showLoginForm'])->name('admin.login');
+Route::post('/admin/login', [AuthAdminController::class, 'login']);
+Route::post('/admin/logout', [AuthAdminController::class, 'logout'])->name('admin.logout');
+Route::get('/admin/orders/index', [OrderController::class, 'index'])->name('admin.orders.index');
+
+
+Route::get('/admin/register', [AuthAdminController::class, 'showRegisterForm'])->name('admin.register');
+Route::post('/admin/register', [AuthAdminController::class, 'register'])->name('admin.register.submit');
 
 // Giỏ hàng
 Route::prefix('cart')->name('cart.')->group(function () {

@@ -31,6 +31,11 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="{{route('admin.register') }}">
+                <i class="bi bi-plus-square me-2"></i> Thêm tài khoản admin
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="#">
                 <i class="bi bi-box-arrow-left me-2"></i> Đăng xuất
             </a>
