@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\OrdersController;
+use App\Http\Controllers\admin\CommentsController;
 use App\Http\Controllers\trangchu\HomeController;
 use App\Http\Controllers\trangchu\SanPhamController;
 use App\Http\Controllers\trangchu\ThongBaoController;
@@ -15,6 +16,7 @@ use App\Http\Controllers\nguoidung\AuthCustomerController;
 use App\Http\Controllers\nguoidung\NguoiDungController;
 use App\Http\Controllers\nguoidung\CartController;
 use App\Http\Controllers\nguoidung\OrderController;
+use App\Http\Controllers\nguoidung\CommentController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\admin\AuthAdminController;
 
@@ -42,6 +44,7 @@ Route::post('/login', [AuthCustomerController::class, 'login']);
 Route::middleware('auth:customer')->group(function () {
     Route::get('/hoso', [NguoiDungController::class, 'index'])->name('nguoidung.hoso');
     Route::get('/lich-su-don-hang', [OrderController::class, 'history'])->name('nguoidung.orders.history');
+    Route::post('/products/{id}/comment', [CommentController::class, 'store'])->name('comments.store');
 
     Route::prefix('order')->name('order.')->group(function () {
         Route::get('/checkout', [OrderController::class, 'checkoutForm'])->name('checkout.form');
@@ -76,6 +79,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/orders', [OrdersController::class, 'index'])->name('orders.index');
     Route::get('/orders/{id}', [OrdersController::class, 'show'])->name('orders.show');
     Route::put('/orders/{id}/update-status', [OrdersController::class, 'updateStatus'])->name('orders.updateStatus');
+
+    Route::get('comments', [CommentsController::class, 'index'])->name('comments.index');
+    Route::delete('comments/{id}', [CommentsController::class, 'destroy'])->name('comments.destroy');
 });
 
 // Logout

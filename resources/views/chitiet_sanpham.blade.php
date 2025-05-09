@@ -169,11 +169,31 @@
         {{ session('success') }}
     </div>
 @endif
-
             </form>
-
+            <!-- {{-- Danh sách bình luận --}} -->
+<div> 
+    <h4>Đánh giá sản phẩm:</h4> 
+    @foreach($product->comments as $comment) 
+    <div class="mb-2"> <strong>
+        {{ $comment->customer->name }}</strong>: 
+        {{ $comment->content }} <br>
+    <small>{{ $comment->created_at->diffForHumans() }}</small> 
+    </div> @endforeach </div>
+        <!-- {{-- Form bình luận (nếu đã đăng nhập) --}} -->
+    @if(auth()->guard('customer')->check())
+        <form method="POST" action="{{ route('comments.store', $product->id) }}">
+    @csrf
+            <textarea name="content" class="form-control" rows="3" required></textarea>
+        <button type="submit" class="btn btn-primary mt-2">Gửi đánh giá</button>
+        
+        </form>
+    @else
+        <p><a href="{{ route('nguoidung.login') }}">Đăng nhập để đánh giá</a></p>
+@endif
         </div>
+        
     </div>
+
     @include('footer')
 </body>
 

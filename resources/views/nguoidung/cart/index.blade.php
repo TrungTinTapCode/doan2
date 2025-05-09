@@ -207,7 +207,7 @@
                 </td>
                 <td>{{ number_format($item['price'] * $item['quantity'], 0, ',', '.') }} VNĐ</td>
                 <td>
-                    <form action="{{ route('cart.remove') }}" method="POST" style="display:inline;">
+                    <form action="{{ route('cart.remove') }}" method="POST" style="display:inline;" onsubmit="return confirm('Xoá sản phẩm này?');">
                         @csrf
                         <input type="hidden" name="product_id" value="{{ $productId }}">
                         <button type="submit">Xóa</button>
