@@ -28,33 +28,40 @@ class OrdersController extends Controller
 
     $order = Order::with('orderDetails')->findOrFail($id);
 
-// Chỉ xử lý trừ hàng nếu đơn được duyệt và chưa trừ kho trước đó
 if ($request->status === 'approved' && !$order->inventory_updated) {
-    DB::transaction(function () use ($order) {
+    DB::beginTransaction();
+    try {
         foreach ($order->orderDetails as $detail) {
             $product = Product::find($detail->product_id);
             if ($product) {
-                $product->quantity -= $detail->quantity;
-                if ($product->quantity < 0) {
-                    $product->quantity = 0;
-                }
+                $newQuantity = $product->quantity - $detail->quantity_order;
+
+                // Không cho tồn kho xuống dưới 0
+                $product->quantity = $newQuantity < 0 ? 0 : $newQuantity;
                 $product->save();
             }
         }
 
-        $order->inventory_updated = true;
         $order->status = 'approved';
+        $order->inventory_updated = true;
         $order->save();
-    });
+
+        DB::commit();
+        return redirect()->route('admin.orders.index')->with('success', 'Cập nhật trạng thái đơn hàng thành công!');
+    } catch (\Exception $e) {
+        DB::rollBack();
+        return redirect()->back()->with('error', 'Lỗi khi cập nhật tồn kho: ' . $e->getMessage());
+    }
 } else {
+    // Trường hợp chỉ đổi trạng thái, không cần trừ hàng
     $order->status = $request->status;
     $order->save();
+
+    return redirect()->route('admin.orders.index')->with('success', 'Cập nhật trạng thái đơn hàng thành công!');
 }
 
-return redirect()->route('admin.orders.index')
-                ->with('success', 'Cập nhật trạng thái đơn hàng thành công!');
-
 }
+
 
     
     public function show($id)
