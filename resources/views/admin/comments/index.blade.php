@@ -4,57 +4,86 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lí bình luận</title>
-    <style> 
-    body { 
-        font-family: Arial, sans-serif; 
-        padding: 20px; background-color: #f5f5f5; 
-    } 
-    h2 { 
-        color: #333; 
-        margin-bottom: 20px; 
-    } 
-    h4 { 
-        margin-top: 30px; 
-        color: #2c3e50; 
-    } 
-    table { 
-        width: 100%; 
-        border-collapse: collapse; 
-        margin-top: 10px; 
-        background-color: #fff; 
-        } 
-    table, th, td { 
-        border: 1px solid #ccc; 
-        } 
-    th { 
-        background-color: #3498db; 
-        color: #fff; 
-        text-align: left; 
-        padding: 10px; 
-        } 
-    td { 
-        padding: 10px; 
-        } 
-    tr:nth-child(even) { 
-        background-color: #f9f9f9; 
-        } 
-    button { 
-        background-color: #e74c3c; 
-        color: #fff; 
-        border: none; 
-        padding: 5px 10px; 
-        border-radius: 4px; 
-        cursor: pointer; 
-        } 
-    button:hover { 
-        background-color: #c0392b; 
-        } em { color: #888; } 
-    hr { 
-        margin-top: 40px; 
-        border: none; 
-        border-top: 1px solid #ccc; 
-        } 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f2f5;
+        padding: 30px;
+    }
+
+    h2 {
+        color: #2c3e50;
+        font-size: 28px;
+        margin-bottom: 30px;
+        border-left: 5px solid #3498db;
+        padding-left: 10px;
+    }
+
+    h4 {
+        color: #34495e;
+        margin-top: 40px;
+        font-size: 20px;
+    }
+
+    table {
+        width: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        margin-top: 15px;
+    }
+
+    thead th {
+        background-color:rgb(0, 88, 146);
+        color: #fff;
+        padding: 12px 15px;
+        font-weight: 600;
+        border-bottom: 2px solid rgb(0, 88, 146);
+    }
+
+    tbody td {
+        padding: 12px 15px;
+        vertical-align: middle;
+        border-bottom: 1px solid #eee;
+        color: #333;
+    }
+
+    tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    em {
+        color: #888;
+        font-style: italic;
+    }
+
+    button {
+        background-color: #e74c3c;
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 4px;
+        font-size: 14px;
+        transition: background-color 0.2s ease;
+    }
+
+    button:hover {
+        background-color: #c0392b;
+    }
+
+    hr {
+        margin: 50px 0;
+        border: none;
+        border-top: 1px solid #ddd;
+    }
+
+    form {
+        margin: 0;
+    }
 </style>
+
 </head>
 <body>
     @include('menu')
@@ -96,5 +125,6 @@
         @endif
         <hr>
     @endforeach
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
