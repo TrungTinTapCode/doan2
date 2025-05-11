@@ -14,13 +14,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
 @include('header')
 <style>
 
     .support-section {
-      background: url('{{ asset('img/lienhe.jpg') }}') no-repeat center center;
+      background: url('/img/lienhe.jpg') no-repeat center center;
       background-size: cover;
       height: 500px;
       padding: 80px 0;

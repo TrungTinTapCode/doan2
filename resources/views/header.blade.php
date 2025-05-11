@@ -63,9 +63,6 @@
                 </div>
                 @endif
                 
-
-
-
                 <!-- Giỏ hàng -->
                 <a href="{{ asset('cart') }}" class="text-dark d-flex align-items-center">
                     <i class="bi bi-cart fs-4"></i>
