@@ -53,7 +53,7 @@ class AuthAdminController extends Controller
 
 
 //đăng ký
- public function showRegisterForm()
+public function showRegisterForm()
 {
     return view('admin.register-admin');
 }
