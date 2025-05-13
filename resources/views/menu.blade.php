@@ -41,7 +41,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('admin.login') }}">
                 <i class="bi bi-box-arrow-left me-2"></i> Đăng xuất
             </a>
         </li>
