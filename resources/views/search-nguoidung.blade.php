@@ -5,7 +5,7 @@
     <form class="d-flex mb-4" action="{{ route('search-nguoidung') }}" method="GET" style="max-width: 400px; margin: auto;">
         <div class="input-group">
             <input type="search" name="keyword" class="form-control border border-secondary rounded-start-4" 
-                   placeholder="Tìm kiếm..." aria-label="Search" value="{{ $keyword ?? '' }}" />
+                placeholder="Tìm kiếm..." aria-label="Search" value="{{ $keyword ?? '' }}" />
             <button type="submit" class="btn btn-secondary rounded-end-4">
                 <i class="bi bi-search"></i>
             </button>

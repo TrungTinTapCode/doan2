@@ -57,8 +57,8 @@
                         <i class="bi bi-person-circle fs-4"></i>
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
-                        <li><a class="dropdown-item" href="{{ route('admin.login') }}">Quản lý</a></li>
                         <li><a class="dropdown-item" href="{{ route('nguoidung.login') }}">Người dùng</a></li>
+                        <li><a class="dropdown-item" href="{{ route('admin.login') }}">Quản lý</a></li>
                     </ul>
                 </div>
                 @endif
