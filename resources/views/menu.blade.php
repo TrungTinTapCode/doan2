@@ -52,7 +52,7 @@
     @yield('content') {{-- Nơi nội dung trang của bạn sẽ hiển thị --}}
 </div>
 <style>
-   body {
+body {
     margin-left: 250px; /* Khoảng cách bên trái để nhường chỗ cho sidebar */
     padding-top: 60px; /* Đảm bảo nội dung không bị che bởi sidebar cố định */
     transition: margin-left 0.3s ease; /* Hiệu ứng chuyển đổi mượt mà (tùy chọn) */
