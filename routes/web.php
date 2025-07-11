@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\OrdersController;
 use App\Http\Controllers\admin\CommentsController;
+use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\trangchu\HomeController;
 use App\Http\Controllers\trangchu\SanPhamController;
 use App\Http\Controllers\trangchu\ThongBaoController;
@@ -73,6 +74,7 @@ Route::prefix('cart')->name('cart.')->group(function () {
 
 // Admin
 Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::resource('products', ProductController::class);
     Route::resource('categories', CategoryController::class);
 
@@ -82,6 +84,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
     Route::get('comments', [CommentsController::class, 'index'])->name('comments.index');
     Route::delete('comments/{id}', [CommentsController::class, 'destroy'])->name('comments.destroy');
+    
 });
 
 // Logout
