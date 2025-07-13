@@ -164,20 +164,25 @@
                                 <td>{{ $order->phone_number }}</td>
                                 <td>{{ number_format($order->total, 0, ',', '.') }} VNĐ</td>
                                 <td @if($order->status == 'pending')
-                    <span class="text-yellow-500">Chờ duyệt</span>
-                @else
-                    <span class="text-green-500">Đã duyệt</span>
-                @endif</td>
+                                    class="status-pending">Chờ duyệt
+                                @else
+                                    class="status-approved">Đã duyệt
+                                @endif
+                                </td>
                                 <td>
-                                    <form action="{{ route('admin.orders.updateStatus', $order->id) }}" method="POST">
-                                        @csrf
-                                        @method('PUT')
-                                        <select name="status">
-                                            <option value="pending" {{ $order->status == 'pending' ? 'selected' : '' }}>Chờ duyệt</option>
-                                            <option value="approved" {{ $order->status == 'approved' ? 'selected' : '' }}>Đã duyệt</option>
-                                        </select>
-                                        <button type="submit" class="btn btn-sm btn-primary">Cập nhật</button>
-                                    </form>
+                                    @if ($order->status == 'pending')
+                                        <form action="{{ route('admin.orders.updateStatus', $order->id) }}" method="POST">
+                                            @csrf
+                                            @method('PUT')
+                                            <select name="status" class="form-select-sm">
+                                                <option value="pending" selected>Chờ duyệt</option>
+                                                <option value="approved">Duyệt đơn</option>
+                                            </select>
+                                            <button type="submit" class="btn btn-sm btn-primary mt-1">Cập nhật</button>
+                                        </form>
+                                    @else
+                                        <span class="text-muted">Không thể thao tác</span>
+                                    @endif
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.orders.show', $order->id) }}">
